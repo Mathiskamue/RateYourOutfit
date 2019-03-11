@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dhbwka.wwi.web;
+package dhbwka.wwi.jpa;
 
+import dhbwka.wwi.jpa.Bild;
+import dhbwka.wwi.jpa.Benutzer;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ import javax.persistence.ManyToOne;
  * @author DEETMUMI
  */
 @Entity
-public class Stern implements Serializable {
+public class Superlike implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,10 +44,10 @@ public class Stern implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Stern)) {
+        if (!(object instanceof Superlike)) {
             return false;
         }
-        Stern other = (Stern) object;
+        Superlike other = (Superlike) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -54,8 +56,9 @@ public class Stern implements Serializable {
 
     @Override
     public String toString() {
-        return "dhbwka.wwi.web.Stern[ id=" + id + " ]";
+        return "dhbwka.wwi.web.Superlike[ id=" + id + " ]";
     }
+    
     @ManyToOne
     Benutzer benutzer = new Benutzer();
     @ManyToOne

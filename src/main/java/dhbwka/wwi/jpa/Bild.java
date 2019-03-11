@@ -3,28 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dhbwka.wwi.web;
+package dhbwka.wwi.jpa;
 
+import dhbwka.wwi.jpa.Benutzer;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author DEETMUMI
  */
 @Entity
-public class Kommentar implements Serializable {
+public class Bild implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String text = "";
+    private String beschreibung ="";
+    //private ... bild;
     
     public Long getId() {
         return id;
@@ -44,10 +49,10 @@ public class Kommentar implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Kommentar)) {
+        if (!(object instanceof Bild)) {
             return false;
         }
-        Kommentar other = (Kommentar) object;
+        Bild other = (Bild) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -56,11 +61,17 @@ public class Kommentar implements Serializable {
 
     @Override
     public String toString() {
-        return "dhbwka.wwi.web.Kommentar[ id=" + id + " ]";
+        return "dhbwka.wwi.web.Bild[ id=" + id + " ]";
     }
-    
     @ManyToOne
     Benutzer benutzer = new Benutzer();
-    @ManyToOne
-    Bild bild = new Bild();
+    @OneToMany
+    (mappedBy="Bild")
+    List<Stern> stern =new ArrayList<>();
+    @OneToMany
+    (mappedBy="Bild")
+    List<Superlike> superLike =new ArrayList<>();
+    @OneToMany
+    (mappedBy="Bild")
+    List<Kommentar> kommentar =new ArrayList<>();
 }

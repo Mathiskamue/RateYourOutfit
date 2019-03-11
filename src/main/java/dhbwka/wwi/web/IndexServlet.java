@@ -5,6 +5,7 @@
  */
 package dhbwka.wwi.web;
 
+import dhbwka.wwi.jpa.Kommentar;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;

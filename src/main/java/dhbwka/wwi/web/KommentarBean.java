@@ -5,6 +5,7 @@
  */
 package dhbwka.wwi.web;
 
+import dhbwka.wwi.jpa.Kommentar;
 import java.sql.SQLException;
 import java.util.List;
 import javax.ejb.Stateless;
