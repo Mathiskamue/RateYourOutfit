@@ -17,15 +17,13 @@ import javax.persistence.ManyToOne;
  * @author DEETMUMI
  */
 @Entity
-public class Kommentar implements Serializable {
+public class Superlike implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String text = "";
-    
     public Long getId() {
         return id;
     }
@@ -44,10 +42,10 @@ public class Kommentar implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Kommentar)) {
+        if (!(object instanceof Superlike)) {
             return false;
         }
-        Kommentar other = (Kommentar) object;
+        Superlike other = (Superlike) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -56,7 +54,7 @@ public class Kommentar implements Serializable {
 
     @Override
     public String toString() {
-        return "dhbwka.wwi.web.Kommentar[ id=" + id + " ]";
+        return "dhbwka.wwi.web.Superlike[ id=" + id + " ]";
     }
     
     @ManyToOne
