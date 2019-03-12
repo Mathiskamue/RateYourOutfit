@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author thoma
  */
 //Servlet das auf die Startseite verweißt 
-@WebServlet(urlPatterns="/start")
+@WebServlet(urlPatterns="/index.jsp")
 public class IndexServlet extends HttpServlet{
 
-public static final String URL = "/start";
+public static final String URL = "/index.jsp";
 
 @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)

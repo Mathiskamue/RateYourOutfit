@@ -18,10 +18,8 @@
     <jsp:attribute name="head">
      <a href="<c:url value="/login"/>">Registrieren</a>    
     </jsp:attribute> 
-    <jsp:attribute name="menu">
-      
-    </jsp:attribute>         
-    <jsp:attribute name="content">
+        
+    <jsp:attribute name="main">
   
     </jsp:attribute>
 </template:base>
