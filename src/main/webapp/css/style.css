@@ -7,10 +7,10 @@ and open the template in the editor.
     Created on : 12.03.2019, 10:42:07
     Author     : DEETMUMI
 */
-main{
-    background-color: green;
-}
 h1{
     font-size: 4pt;
     color: green;
+}
+body{
+    background-color: green;
 }

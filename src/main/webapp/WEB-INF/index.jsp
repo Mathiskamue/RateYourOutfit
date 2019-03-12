@@ -12,6 +12,8 @@
 
 
 //Hier können sich die Benutzer auf der Seite anmelden 
+<c:set var="base-url" value="<%=request.getContextPath()%>" />
+
 <template:base>
     
     <jsp:attribute name="title">

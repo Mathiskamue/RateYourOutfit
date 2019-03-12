@@ -10,13 +10,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-<%@attribute name="message"%>
 <%@attribute name="title"%>
 <%@attribute name="head" fragment="true"%>
 <%@attribute name="main" fragment="true"%>
 
 <%-- any content can be specified here e.g.: --%>
-<h2>${message}</h2>
 
 <!DOCTYPE html>
 <html>
@@ -24,14 +22,16 @@
         <meta charset="utf-8">
         
         <title>RateYourOutfit | ${title}</title>
-        <link rel="stylesheet" href="<c:url value="css/style.css"/>" />
 
         <jsp:invoke fragment="head"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css"/>" >
+        
     </head>
+    
     <body>
         <!-- Hauptinhalt der Seite -->
         <main>    
-            <h1 class="h">Hallo!</h1>
+            <h1>Hallo!</h1>
             <jsp:invoke fragment="main"/>
         </main>
     </body>
