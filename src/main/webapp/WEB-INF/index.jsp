@@ -14,16 +14,16 @@
 //Hier können sich die Benutzer auf der Seite anmelden 
 <template:base>
     
- <jsp:attribute name="title">
- <jsp:attribute name="head">
-   <a href="<c:url value="/login"/>">Registrieren</a>      
-  <jsp:attribute name="menu">
-            
-   <jsp:attribute name="content">
+    <jsp:attribute name="title">
+    <jsp:attribute name="head">
+     <a href="<c:url value="/login"/>">Registrieren</a>    
+    </jsp:attribute> 
+    <jsp:attribute name="menu">
+      
+    </jsp:attribute>         
+    <jsp:attribute name="content">
   
- </jsp:attribute>      
- </jsp:attribute>                
- </jsp:attribute>
+    </jsp:attribute>
 </template:base>
     
     
