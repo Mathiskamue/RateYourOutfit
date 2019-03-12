@@ -17,10 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author thoma
  */
 //Servlet das auf die Startseite verweißt 
-@WebServlet(urlPatterns="/index.jsp")
+@WebServlet(urlPatterns={"/"})
 public class IndexServlet extends HttpServlet{
 
-public static final String URL = "/index.jsp";
 
 @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,6 +29,12 @@ public static final String URL = "/index.jsp";
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 
+public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        
+        response.sendRedirect(request.getContextPath() + LoginServlet.URL);
+    }
 
     
 }
