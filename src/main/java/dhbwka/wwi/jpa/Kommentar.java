@@ -36,6 +36,7 @@ public class Kommentar implements Serializable {
         this.text = text;
     }
     private String h = "Hallo";
+
     public Long getId() {
         return id;
     }
@@ -68,7 +69,7 @@ public class Kommentar implements Serializable {
     public String toString() {
         return "dhbwka.wwi.web.Kommentar[ id=" + id + " ]";
     }
-    
+
     /* @ManyToOne
     Benutzer benutzer = new Benutzer();
     @ManyToOne

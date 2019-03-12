@@ -35,4 +35,7 @@
             <jsp:invoke fragment="main"/>
         </main>
     </body>
+    <footer>
+        
+    </footer>
 </html>

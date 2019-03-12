@@ -20,48 +20,45 @@ import javax.servlet.http.HttpSession;
  *
  * @author thoma
  */
-@WebServlet(urlPatterns="/login")
-public class LoginServlet extends HttpServlet{
-    
+@WebServlet(urlPatterns = "/login")
+public class LoginServlet extends HttpServlet {
+
     public static final String URL = "/login";
-    
+
     @EJB
     BenutzerBean benutzer;
-    
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-            // Eingegebene Werte auslesen
-     
-    request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-    
-}
-    
-    @Override
-     public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-             // Eingegebene Werte auslesen
+        // Eingegebene Werte auslesen
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
-       
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Eingegebene Werte auslesen
+
         String username = request.getParameter("r_username");
         String password = request.getParameter("r_password");
 
-         Benutzer benutzerjpa =     new Benutzer();
-         
-         benutzerjpa.setName(username);
-         benutzerjpa.setPasswort(password);
-         
-          // Werte im Session Kontext ablegen
-         HttpSession session = request.getSession();
-         session.setAttribute("r_username", username);
-         this.benutzer.saveNew(benutzerjpa);
-        
-       
-       // Und die Seite nochmal laden lassen
-      // response.sendRedirect(request.getRequestURI());
-  response.sendRedirect(request.getContextPath() + KommentarServlet.URL);
-   
-     }
-         
+        Benutzer benutzerjpa = new Benutzer();
+
+        benutzerjpa.setName(username);
+        benutzerjpa.setPasswort(password);
+
+        // Werte im Session Kontext ablegen
+        HttpSession session = request.getSession();
+        session.setAttribute("r_username", username);
+        this.benutzer.saveNew(benutzerjpa);
+
+        // Und die Seite nochmal laden lassen
+        // response.sendRedirect(request.getRequestURI());
+        response.sendRedirect(request.getContextPath() + KommentarServlet.URL);
+
+    }
+
 }

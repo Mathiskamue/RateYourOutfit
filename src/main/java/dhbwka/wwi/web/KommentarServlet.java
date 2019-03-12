@@ -21,40 +21,33 @@ import javax.servlet.http.HttpSession;
  *
  * @author thoma
  */
-@WebServlet(urlPatterns={"/comment"})
-public class KommentarServlet extends HttpServlet{
-    
+@WebServlet(urlPatterns = {"/comment"})
+public class KommentarServlet extends HttpServlet {
+
     public static final String URL = "/comment";
-    
+
     @EJB
     KommentarBean kommentarBean;
-    
-    
-      public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-          
-          
-          
-      }
-      
-      @Override
-     public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-             // Eingegebene Werte auslesen
 
-       
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Eingegebene Werte auslesen
+
         String kommentar = request.getParameter("kommentarRein");
-       
-        Kommentar comment =     new Kommentar();
+
+        Kommentar comment = new Kommentar();
         comment.setText(kommentar);
-       
-         
-        
-       
-       // Und die Seite nochmal laden lassen
-      // response.sendRedirect(request.getRequestURI());
-  response.sendRedirect(request.getContextPath() + KommentarServlet.URL);
-   
-     }
-    
+
+        // Und die Seite nochmal laden lassen
+        // response.sendRedirect(request.getRequestURI());
+        response.sendRedirect(request.getContextPath() + KommentarServlet.URL);
+
+    }
+
 }

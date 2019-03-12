@@ -7,34 +7,28 @@
 
 //Hier können sich die Benutzer auf der Seite anmelden 
 <template:base>
-    
+
     <jsp:attribute name="title">
-        
+
     </jsp:attribute>
     <jsp:attribute name="head">
-        
+
     </jsp:attribute>
-        
-    
-        
+
+
+
     <jsp:attribute name="main">
-        
+
         <label for="kommentarRein">
-            </label>
-   
-           <select name="type">
-              <c:forEach items="${comment}" var="kommentar" >
-                  <div class = "lol">
-                      
-                  </div>
-                      <tr>
-                          <c:out value=${kommentar.getText()}/>
-                      </tr>
-                  
-              </c:forEach>
-            </select>
-            
-   
+        </label>
+
+
+        <c:forEach items="${comment}" var="kommentar" >
+            <div>
+
+                <c:out value="${kommentar.getText()}"/>
+
+            </div>
+        </c:forEach>
     </jsp:attribute>
 </template:base>
-    
