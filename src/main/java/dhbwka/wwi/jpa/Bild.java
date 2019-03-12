@@ -28,7 +28,6 @@ public class Bild implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String h = "Hallo";
     private String beschreibung ="";
     private byte[] bild = null;
     
