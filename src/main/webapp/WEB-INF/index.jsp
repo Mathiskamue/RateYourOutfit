@@ -15,9 +15,7 @@
 <template:base>
     
     <jsp:attribute name="title">
-        <h1>
-            Willkommen auf RateYourOutfit
-        </h1>
+        
     </jsp:attribute>
     <jsp:attribute name="head">
         

@@ -22,16 +22,16 @@
 <html>
     <head>
         <meta charset="utf-8">
-
+        
         <title>RateYourOutfit | ${title}</title>
-        <link rel="stylesheet" href="/src/main/webapp/style.css" />
+        <link rel="stylesheet" href="<c:url value="css/style.css"/>" />
 
         <jsp:invoke fragment="head"/>
     </head>
     <body>
         <!-- Hauptinhalt der Seite -->
         <main>    
-            <h1>Hallo!</h1>
+            <h1 class="h">Hallo!</h1>
             <jsp:invoke fragment="main"/>
         </main>
     </body>
