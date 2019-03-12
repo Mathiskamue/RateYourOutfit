@@ -5,10 +5,15 @@
  */
 package dhbwka.wwi.web;
 
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+
 /**
  *
  * @author mathi
  */
+@WebServlet(urlPatterns="/index.html")
+@MultipartConfig
 public class UploadServlet {
     
 }
