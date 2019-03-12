@@ -15,12 +15,22 @@
 <template:base>
     
     <jsp:attribute name="title">
+        <h1>
+            Willkommen auf RateYourOutfit
+        </h1>
+    </jsp:attribute>
     <jsp:attribute name="head">
-     <a href="<c:url value="/login"/>">Registrieren</a>    
-    </jsp:attribute> 
+        
+    </jsp:attribute>
+        
+    
         
     <jsp:attribute name="main">
-  
+        <form method="Post">
+            <button class="icon-login" type="submit">
+                       Eingang
+            </button>
+        </form>
     </jsp:attribute>
 </template:base>
     
