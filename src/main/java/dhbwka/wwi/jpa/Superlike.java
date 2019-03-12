@@ -26,7 +26,6 @@ public class Superlike implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String h = "Hallo";
     public Long getId() {
         return id;
     }
@@ -60,8 +59,8 @@ public class Superlike implements Serializable {
         return "dhbwka.wwi.web.Superlike[ id=" + id + " ]";
     }
     
-    @ManyToOne
+    /* @ManyToOne
     Benutzer benutzer = new Benutzer();
     @ManyToOne
-    Bild bild = new Bild();
+    Bild bild = new Bild();*/
 }

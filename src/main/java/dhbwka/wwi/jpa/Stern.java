@@ -59,8 +59,8 @@ public class Stern implements Serializable {
     public String toString() {
         return "dhbwka.wwi.web.Stern[ id=" + id + " ]";
     }
-    @ManyToOne
+    /* @ManyToOne
     Benutzer benutzer = new Benutzer();
     @ManyToOne
-    Bild bild = new Bild();
+    Bild bild = new Bild();*/
 }

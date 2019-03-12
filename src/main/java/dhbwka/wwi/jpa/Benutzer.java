@@ -26,12 +26,53 @@ public class Benutzer implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String h = "Hallo";
     private String email = "";
     private String passwort = "";
     private String art = "";
     private double score = 0;
     private String name = "";
+
+
+ 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPasswort() {
+        return passwort;
+    }
+
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
+    }
+
+    public String getArt() {
+        return art;
+    }
+
+    public void setArt(String art) {
+        this.art = art;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
     public Long getId() {
         return id;
@@ -65,6 +106,7 @@ public class Benutzer implements Serializable {
     public String toString() {
         return "dhbwka.wwi.web.Benutzer[ id=" + id + " ]";
     }
+    /*
     @OneToMany
     (mappedBy="Benutzer")
     List<Bild> bild =new ArrayList<>();
@@ -77,4 +119,5 @@ public class Benutzer implements Serializable {
     @OneToMany
     (mappedBy="Benutzer")
     List<Kommentar> kommentar =new ArrayList<>();
+*/
 }

@@ -32,4 +32,5 @@ public class BildBean {
     public Bild findKommentarById(long id) {
         return em.find(Bild.class, id);
     }
+    
 }
