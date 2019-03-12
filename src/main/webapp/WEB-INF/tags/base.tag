@@ -24,7 +24,7 @@
         <meta charset="utf-8">
 
         <title>RateYourOutfit | ${title}</title>
-        <link rel="stylesheet" href="RateYourOutfit\src\main\webapp\style.css" />
+        <link rel="stylesheet" href="/src/main/webapp/style.css" />
 
         <jsp:invoke fragment="head"/>
     </head>

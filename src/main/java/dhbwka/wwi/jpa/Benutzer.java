@@ -26,7 +26,7 @@ public class Benutzer implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    
+    private String h = "Hallo";
     private String email = "";
     private String passwort = "";
     private String art = "";

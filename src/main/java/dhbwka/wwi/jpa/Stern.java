@@ -26,6 +26,7 @@ public class Stern implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String h = "Hallo";
     public Long getId() {
         return id;
     }
