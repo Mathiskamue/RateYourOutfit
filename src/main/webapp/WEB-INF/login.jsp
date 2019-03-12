@@ -13,13 +13,15 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
+
+//Hier können sich die Benutzer auf der Seite anmelden 
 <template:base>
     <jsp:attribute name="title">
         Login
     </jsp:attribute>
 
     <jsp:attribute name="head">
-        <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />
+        <%-- <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />--%>
     </jsp:attribute>
 
     <jsp:attribute name="menu">
@@ -30,20 +32,21 @@
 
     <jsp:attribute name="content">
         <div class="container">
-            <form action="j_security_check" method="post" class="stacked">
+            <%--<form action="j_security_check" method="post" class="stacked">--%>
+            <form method="POST">
                 <div class="column">
                     <%-- Eingabefelder --%>
-                    <label for="j_username">
+                    <label for="r_username">
                         Benutzername:
                         <span class="required">*</span>
                     </label>
-                    <input type="text" name="j_username">
+                    <input type="text" name="r_username">
 
-                    <label for="j_password">
+                    <label for="password">
                         Passwort:
                         <span class="required">*</span>
                     </label>
-                    <input type="password" name="j_password">
+                    <input type="password" name="r_password">
 
                     <%-- Button zum Abschicken --%>
                     <button class="icon-login" type="submit">
