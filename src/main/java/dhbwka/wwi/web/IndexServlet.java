@@ -16,17 +16,20 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author thoma
  */
-@WebServlet(urlPatterns="/login")
-public class LoginServlet extends HttpServlet{
-    
-    public static final String URL = "/login";
-    
-    
-    @Override
+//Servlet das auf die Startseite verweißt 
+@WebServlet(urlPatterns="/start")
+public class IndexServlet extends HttpServlet{
+
+public static final String URL = "/start";
+
+@Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
+        request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+    }
+
+
     
-    request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
-    
-}
 }
