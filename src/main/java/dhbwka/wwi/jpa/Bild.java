@@ -29,7 +29,16 @@ public class Bild implements Serializable {
     private Long id;
 
     private String beschreibung ="";
-    private byte[] bild;
+    private byte[] bild = null;
+    
+    public Bild(){
+        
+    }
+    
+    public Bild(String beschreibung, byte[] bild){
+        this.beschreibung = beschreibung;
+        this.bild = bild;
+    }
 
     public Long getId() {
         return id;
