@@ -9,6 +9,6 @@ package dhbwka.wwi.web;
  *
  * @author mathi
  */
-public class PictureServlet {
+public class UploadServlet {
     
 }

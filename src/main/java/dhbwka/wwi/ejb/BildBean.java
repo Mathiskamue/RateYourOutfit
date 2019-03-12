@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dhbwka.wwi.web;
+package dhbwka.wwi.ejb;
 
 /**
  *
  * @author mathi
  */
-public class PictureServlet {
+public class BildBean {
     
 }

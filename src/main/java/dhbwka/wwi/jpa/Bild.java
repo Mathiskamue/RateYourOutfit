@@ -29,8 +29,8 @@ public class Bild implements Serializable {
     private Long id;
 
     private String beschreibung ="";
-    //private ... bild;
-    
+    private byte[] bild;
+
     public Long getId() {
         return id;
     }
@@ -38,6 +38,27 @@ public class Bild implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
+    }
+
+    public byte[] getBild() {
+        return bild;
+    }
+
+    public void setBild(byte[] bild) {
+        this.bild = bild;
+    }
+    
+    
+    
+    
+    
 
     @Override
     public int hashCode() {
@@ -63,6 +84,7 @@ public class Bild implements Serializable {
     public String toString() {
         return "dhbwka.wwi.web.Bild[ id=" + id + " ]";
     }
+    
     @ManyToOne
     Benutzer benutzer = new Benutzer();
     @OneToMany
