@@ -5,8 +5,9 @@
  */
 package dhbwka.wwi.web;
 
-import dhbwka.wwi.ejb.BenutzerBean;
+import dhbwka.wwi.ejb.KommentarBean;
 import dhbwka.wwi.jpa.Benutzer;
+import dhbwka.wwi.jpa.Kommentar;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -20,42 +21,34 @@ import javax.servlet.http.HttpSession;
  *
  * @author thoma
  */
-@WebServlet(urlPatterns="/login")
-public class LoginServlet extends HttpServlet{
+@WebServlet(urlPatterns={"/comment"})
+public class KommentarServlet extends HttpServlet{
     
-    public static final String URL = "/login";
+    public static final String URL = "/comment";
     
     @EJB
-    BenutzerBean benutzer;
+    KommentarBean kommentarBean;
     
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    
+      public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-            // Eingegebene Werte auslesen
-     
-    request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-    
-}
-    
-    @Override
+          
+          
+          
+      }
+      
+      @Override
      public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
              // Eingegebene Werte auslesen
 
        
-        String username = request.getParameter("r_username");
-        String password = request.getParameter("r_password");
-
-         Benutzer benutzerjpa =     new Benutzer();
+        String kommentar = request.getParameter("kommentarRein");
+       
+        Kommentar comment =     new Kommentar();
+        comment.setText(kommentar);
+       
          
-         benutzerjpa.setName(username);
-         benutzerjpa.setPasswort(password);
-         
-          // Werte im Session Kontext ablegen
-         HttpSession session = request.getSession();
-         session.setAttribute("r_username", username);
-         this.benutzer.saveNew(benutzerjpa);
         
        
        // Und die Seite nochmal laden lassen
@@ -63,5 +56,5 @@ public class LoginServlet extends HttpServlet{
   response.sendRedirect(request.getContextPath() + KommentarServlet.URL);
    
      }
-         
+    
 }

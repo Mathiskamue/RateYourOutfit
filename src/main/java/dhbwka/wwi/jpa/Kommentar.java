@@ -27,6 +27,14 @@ public class Kommentar implements Serializable {
     private Long id;
 
     private String text = "";
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
     private String h = "Hallo";
     public Long getId() {
         return id;
