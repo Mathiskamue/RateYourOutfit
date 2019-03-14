@@ -29,10 +29,21 @@
     </head>
     
     <body>
+        <header>
+            <!-- Navigation -->
+            <section id="navigation" class="container-fluid">
+                <div id="nav-item"class="row">
+                        <a id="navi-home"class="nav-link" href="/RateYourOutfit/index">Home</a>
+                        <a id="navi-pets" class="nav-link" href="/RateYourOutfit/upload">Upload</a>
+                        <a id="navi-aboutus"class="nav-link" href="/RateYourOutfit/login">LogIn</a>
+                </div>
+            </section>
+        </header>
         <!-- Hauptinhalt der Seite -->
         <main>    
-            <h1>Hallo!</h1>
+            <h1>Willkommen bei RateYourOutfit :)</h1>
             <jsp:invoke fragment="main"/>
+            
         </main>
     </body>
     <footer>

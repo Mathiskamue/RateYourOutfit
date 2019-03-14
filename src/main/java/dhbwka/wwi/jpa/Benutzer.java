@@ -22,9 +22,10 @@ import javax.persistence.OneToMany;
 public class Benutzer implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue
+    private long id = 0;
 
     private String email = "";
     private String passwort = "";
@@ -32,7 +33,16 @@ public class Benutzer implements Serializable {
     private double score = 0;
     private String name = "";
 
-
+    public Benutzer(){
+        
+    }
+    public Benutzer(String email,String passwort,String art,double score,String name){
+        this.email = email;
+        this.passwort = passwort;
+        this.art = art;
+        this.score = score;
+        this.name = name;
+    }
  
     public String getEmail() {
         return email;
@@ -78,29 +88,10 @@ public class Benutzer implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Benutzer)) {
-            return false;
-        }
-        Benutzer other = (Benutzer) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {
