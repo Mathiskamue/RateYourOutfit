@@ -59,8 +59,9 @@ public class Superlike implements Serializable {
         return "dhbwka.wwi.web.Superlike[ id=" + id + " ]";
     }
     
-    /* @ManyToOne
-    Benutzer benutzer = new Benutzer();
     @ManyToOne
-    Bild bild = new Bild();*/
+    Benutzer benutzer = null;
+    
+    @ManyToOne
+    Bild bild = null;
 }

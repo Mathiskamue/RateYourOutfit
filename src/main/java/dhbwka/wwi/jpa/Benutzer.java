@@ -106,18 +106,21 @@ public class Benutzer implements Serializable {
     public String toString() {
         return "dhbwka.wwi.web.Benutzer[ id=" + id + " ]";
     }
-    /*
+    
     @OneToMany
-    (mappedBy="Benutzer")
+    (mappedBy="benutzer")
     List<Bild> bild =new ArrayList<>();
+    
     @OneToMany
-    (mappedBy="Benutzer")
+    (mappedBy="benutzer")
     List<Stern> stern =new ArrayList<>();
+    
     @OneToMany
-    (mappedBy="Benutzer")
+    (mappedBy="benutzer")
     List<Superlike> superLike =new ArrayList<>();
+    
     @OneToMany
-    (mappedBy="Benutzer")
+    (mappedBy="benutzer")
     List<Kommentar> kommentar =new ArrayList<>();
-*/
+
 }

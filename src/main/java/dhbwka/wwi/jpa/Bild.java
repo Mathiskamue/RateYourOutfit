@@ -93,16 +93,19 @@ public class Bild implements Serializable {
     public String toString() {
         return "dhbwka.wwi.web.Bild[ id=" + id + " ]";
     }
-    /*    /*
+    
     @ManyToOne
-    Benutzer benutzer = new Benutzer();
+    Benutzer benutzer = null;
+    
     @OneToMany
-    (mappedBy="Bild")
+    (mappedBy="bild")
     List<Stern> stern =new ArrayList<>();
+    
     @OneToMany
-    (mappedBy="Bild")
+    (mappedBy="bild")
     List<Superlike> superLike =new ArrayList<>();
+    
     @OneToMany
-    (mappedBy="Bild")
-    List<Kommentar> kommentar =new ArrayList<>();*/
+    (mappedBy="bild")
+    List<Kommentar> kommentar =new ArrayList<>();
 }

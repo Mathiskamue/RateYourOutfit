@@ -70,8 +70,9 @@ public class Kommentar implements Serializable {
         return "dhbwka.wwi.web.Kommentar[ id=" + id + " ]";
     }
 
-    /* @ManyToOne
-    Benutzer benutzer = new Benutzer();
     @ManyToOne
-    Bild bild = new Bild();*/
+    Benutzer benutzer = null;
+    
+    @ManyToOne
+    Bild bild = null;
 }
