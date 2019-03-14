@@ -20,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathi
  */
-@WebServlet(urlPatterns="/darstellung.jsp")
+@WebServlet(urlPatterns="/bild")
 public class PictureServlet extends HttpServlet {
     
-    public static final String URL = "/upload.jsp";
+    public static final String URL = "/bild";
     
     @EJB
     BildBean bildBean;
@@ -32,13 +32,16 @@ public class PictureServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         
-        
+        int id = BildForm.id;
+                 
+                
         response.setContentType("image/jpeg");
-        Bild bild = this.bildBean.findKommentarById(201);
+        Bild bild = this.bildBean.findKommentarById(id);
         byte[] imageBytes = bild.getBild();
         response.setContentLength(imageBytes.length);
         response.getOutputStream().write(imageBytes);
         response.getOutputStream().flush();
         response.getOutputStream().close();
+        
     }
 }

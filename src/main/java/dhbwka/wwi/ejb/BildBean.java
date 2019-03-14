@@ -20,6 +20,7 @@ public class BildBean {
     @PersistenceContext
     EntityManager em;
     
+    
     public Bild createNewBild(String beschreibung, byte[] picture){
         Bild bild = new Bild(beschreibung, picture);
         em.persist(bild);
@@ -32,5 +33,9 @@ public class BildBean {
     public Bild findKommentarById(long id) {
         return em.find(Bild.class, id);
     }
+    
+    
+    
+    
     
 }

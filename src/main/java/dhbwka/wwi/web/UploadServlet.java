@@ -24,11 +24,11 @@ import org.apache.commons.io.IOUtils;
  *
  * @author mathi
  */
-@WebServlet(urlPatterns="/upload.jsp")
+@WebServlet(urlPatterns="/upload")
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
     
-    public static final String URL = "/upload.jsp";
+    public static final String URL = "/upload";
     
     @EJB
     BildBean bildBean;
@@ -41,7 +41,7 @@ public class UploadServlet extends HttpServlet {
         // damit es beim Erstaufruf nicht zum Absturz kommt  
         
 
-        
+        System.out.println("sadfsadfasdfsadfsadfasdfsadfsadfasdf");
         HttpSession session = request.getSession();
         BildForm form = (BildForm) session.getAttribute("bild_form");
         
@@ -59,17 +59,26 @@ public class UploadServlet extends HttpServlet {
             throws ServletException, IOException {
         
         request.setCharacterEncoding("utf-8");
+        if(request.getParameter("first") != null){
+            BildForm form = new BildForm();
+            form.setBeschreibung(request.getParameter("beschreibung"));
+            BildForm.id = Integer.valueOf(request.getParameter("id"));
+            System.out.println(BildForm.id);
+
+            Part filepart = request.getPart("picture");
+            InputStream inputStream = filepart.getInputStream();
+
+            form.setBild(IOUtils.toByteArray(inputStream));
+
+            bildBean.createNewBild(form.getBeschreibung(), form.getBild());
+            response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+        }
+        else if(request.getParameter("second")!= null){
+            System.out.println("funktioniert");
+            response.sendRedirect(request.getContextPath() + LoginServlet.URL);
+        }
         
-        BildForm form = new BildForm();
-        form.setBeschreibung(request.getParameter("beschreibung"));
         
-        Part filepart = request.getPart("picture");
-        InputStream inputStream = filepart.getInputStream();
-        
-        form.setBild(IOUtils.toByteArray(inputStream));
-        
-        bildBean.createNewBild(form.getBeschreibung(), form.getBild());
-        response.sendRedirect(request.getContextPath() + PictureServlet.URL);;
     }
     
 }

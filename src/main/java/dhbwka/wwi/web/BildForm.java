@@ -12,6 +12,7 @@ package dhbwka.wwi.web;
 public class BildForm {
     private String beschreibung = "";
     private byte[] bild = null;
+    public static int id;
     
 
     public String getBeschreibung() {
@@ -27,5 +28,11 @@ public class BildForm {
     }
     public void setBild(byte[] bild) {
         this.bild = bild;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
+    public int getId(){
+        return id;
     }
 }
