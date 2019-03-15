@@ -8,9 +8,13 @@ and open the template in the editor.
     Author     : DEETMUMI
 */
 h1{
-    font-size: 4pt;
+    font-size: 12pt;
     color: green;
 }
-body{
-    background-color: green;
+
+
+
+a{
+    border: 3px solid #FFFFFF;
+    border-radius: 5px;
 }

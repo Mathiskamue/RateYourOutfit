@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author thoma
  */
 //Servlet das auf die Startseite verweißt 
-@WebServlet(urlPatterns={"/"})
+@WebServlet(urlPatterns={"/index.html"})
 public class IndexServlet extends HttpServlet{
 
 
