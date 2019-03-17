@@ -41,7 +41,6 @@ public class UploadServlet extends HttpServlet {
         // damit es beim Erstaufruf nicht zum Absturz kommt  
         
 
-        System.out.println("sadfsadfasdfsadfsadfasdfsadfsadfasdf");
         HttpSession session = request.getSession();
         BildForm form = (BildForm) session.getAttribute("bild_form");
         
@@ -50,6 +49,9 @@ public class UploadServlet extends HttpServlet {
         }
         
         // Anfrage an die JSP weiterleiten
+        List<Integer> ids = bildBean.findAllIds();
+        request.setAttribute("bildids", ids);
+        
         
         request.getRequestDispatcher("/WEB-INF/upload.jsp").forward(request, response);        
     }
@@ -60,18 +62,23 @@ public class UploadServlet extends HttpServlet {
         
         request.setCharacterEncoding("utf-8");
         if(request.getParameter("first") != null){
-            BildForm form = new BildForm();
-            form.setBeschreibung(request.getParameter("beschreibung"));
-            BildForm.id = Integer.valueOf(request.getParameter("id"));
-            System.out.println(BildForm.id);
+            if(!request.getParameter("beschreibung").equals("")){
+                System.out.println("funktioniert nicht");
+                BildForm form = new BildForm();
+                form.setBeschreibung(request.getParameter("beschreibung"));
+                Part filepart = request.getPart("picture");
+                InputStream inputStream = filepart.getInputStream();
 
-            Part filepart = request.getPart("picture");
-            InputStream inputStream = filepart.getInputStream();
+                form.setBild(IOUtils.toByteArray(inputStream));
 
-            form.setBild(IOUtils.toByteArray(inputStream));
-
-            bildBean.createNewBild(form.getBeschreibung(), form.getBild());
-            response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+                bildBean.createNewBild(form.getBeschreibung(), form.getBild());
+                response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+            }
+            else{
+                System.out.println("funktioniert");
+                response.sendRedirect(request.getContextPath() + LoginServlet.URL);
+            }
+            
         }
         else if(request.getParameter("second")!= null){
             System.out.println("funktioniert");

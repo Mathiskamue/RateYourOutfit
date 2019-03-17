@@ -26,7 +26,9 @@
             <button type="submit" name="second">Zurück zum Login</button>
              
         </form>
-        <img src="http://localhost:8080/RateYourOutfit/handbuch"> 
-        <img src="http://localhost:8080/RateYourOutfit/handbuch"> 
+            <c:forEach items="${bildids}" var="bildid">
+                <img src="http://localhost:8080/RateYourOutfit/bild?id=${bildid}">
+            </c:forEach>
+         
     </body>
 </html>

@@ -20,21 +20,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathi
  */
-@WebServlet(urlPatterns="/bild")
+@WebServlet(urlPatterns = "/bild")
 public class PictureServlet extends HttpServlet {
-    
+
     public static final String URL = "/bild";
-    
+
     @EJB
     BildBean bildBean;
-    
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
-        
-        int id = BildForm.id;
-                 
-                
+            throws ServletException, IOException {
+
+        int id = 0;
+
+        try {
+            id = Integer.parseInt(request.getParameter("id"));
+        } catch (NumberFormatException ex) {
+            // Parameter id enthält keine gültige Zahl!
+        }
+
         response.setContentType("image/jpeg");
         Bild bild = this.bildBean.findKommentarById(id);
         byte[] imageBytes = bild.getBild();
@@ -42,6 +47,6 @@ public class PictureServlet extends HttpServlet {
         response.getOutputStream().write(imageBytes);
         response.getOutputStream().flush();
         response.getOutputStream().close();
-        
+
     }
 }

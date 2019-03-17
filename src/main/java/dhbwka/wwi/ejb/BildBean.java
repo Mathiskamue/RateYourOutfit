@@ -33,7 +33,9 @@ public class BildBean {
     public Bild findKommentarById(long id) {
         return em.find(Bild.class, id);
     }
-    
+    public List<Integer> findAllIds(){
+        return em.createQuery("SELECT w.id FROM Bild w").getResultList();
+    }
     
     
     
