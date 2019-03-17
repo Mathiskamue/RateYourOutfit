@@ -6,10 +6,12 @@
 package dhbwka.wwi.web;
 
 import dhbwka.wwi.ejb.KommentarBean;
+import dhbwka.wwi.ejb.SternBean;
 import dhbwka.wwi.jpa.Benutzer;
 import dhbwka.wwi.jpa.Kommentar;
 import dhbwka.wwi.jpa.Stern;
 import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -30,12 +32,16 @@ public class KommentarServlet extends HttpServlet {
 
     @EJB
     KommentarBean kommentarBean;
+    
+    @EJB
+    SternBean sternBean;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
+        List<Kommentar> findText = this.kommentarBean.findAll();
+        request.setAttribute("findText", findText);
 
-        /* List<Kommentar> findComment = this.kommentarBean.findComment();
-        request.setAttribute("kommentar", findComment);*/
         request.getRequestDispatcher("/WEB-INF/comment.jsp").forward(request, response);
 
     }
@@ -49,29 +55,14 @@ public class KommentarServlet extends HttpServlet {
         String kommentar = request.getParameter("kommentarRein");
         Kommentar comment = new Kommentar();
         comment.setText(kommentar);
-        this.kommentarBean.saveComment(comment);
-        //Sterne speichern
-        String stern = request.getParameter("bewertung.value");
-        Stern star = new Stern();
+        this.kommentarBean.saveNew(comment);
         
-        switch (stern) {
-            case "1":
-                
-                break;
-            case "2":
-                System.out.println("i ist zwei");
-                break;
-            case "3":
-                System.out.println("i ist drei");
-                break;
-            case "4":
-                System.out.println("i ist drei");
-
-            case "5":
-                System.out.println("i ist drei");
-            default:
-                System.out.println("i liegt nicht zwischen null und drei");
-        }
+        //Sterne speichern
+        int stern = Integer.parseInt(request.getParameter("bewertung"));
+        Stern star = new Stern();
+        star.setStern(stern);
+        System.out.println(stern);
+        this.sternBean.saveStern(star);
 
         response.sendRedirect(request.getContextPath() + KommentarServlet.URL);
 

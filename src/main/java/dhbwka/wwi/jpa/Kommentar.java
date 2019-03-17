@@ -28,12 +28,14 @@ public class Kommentar implements Serializable {
 
     private String text = "";
 
-    public Kommentar(){
-        
+    public Kommentar() {
+
     }
-    public Kommentar(String text){
+
+    public Kommentar(String text) {
         this.text = text;
     }
+
     public String getText() {
         return text;
     }
@@ -51,7 +53,6 @@ public class Kommentar implements Serializable {
         this.id = id;
     }
 
-
     @Override
     public String toString() {
         return "dhbwka.wwi.web.Kommentar[ id=" + id + " ]";
@@ -59,7 +60,11 @@ public class Kommentar implements Serializable {
 
     @ManyToOne
     Benutzer benutzer = null;
-    
+
     @ManyToOne
     Bild bild = null;
+
+    @ManyToOne
+    Stern stern = null;
+    
 }

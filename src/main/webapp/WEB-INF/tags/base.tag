@@ -33,9 +33,10 @@
             <!-- Navigation -->
             <section id="navigation" class="container-fluid">
                 <div id="nav-item"class="row">
-                        <a id="navi-home"class="nav-link" href="/RateYourOutfit/index">Home</a>
-                        <a id="navi-pets" class="nav-link" href="/RateYourOutfit/upload">Upload</a>
-                        <a id="navi-aboutus"class="nav-link" href="/RateYourOutfit/login">LogIn</a>
+                        <a id="home"class="nav-link" href="/RateYourOutfit/index">Home</a>
+                        <a id="upload" class="nav-link" href="/RateYourOutfit/upload">Upload</a>
+                        <a id="login"class="nav-link" href="/RateYourOutfit/login">LogIn</a>
+                        <a id="overview"class="nav-link" href="/RateYourOutfit/comment">Overview</a>
                 </div>
             </section>
         </header>
