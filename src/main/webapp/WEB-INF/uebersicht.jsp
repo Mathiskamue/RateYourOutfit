@@ -22,10 +22,12 @@
         <div class="anzeige">
         <c:forEach items="${bildids}" var="bildid">
             <div class="einzeln">
+                <div style="display: inline" class="username">Placeholder_Username</div>
+                <div style="display: inline" class="sterne">PH_Bewertung</div>
                 <img src="http://localhost:8080/RateYourOutfit/bild?id=${bildid}" class="images">
                 <br>               
                 <span class="sternebewertung"> 
-                    <button class="bewertung" type="submit"><i class="fas fa-chevron-circle-right"></i></button>
+                    <button class="bewertungbtn" type="submit"><i class="fas fa-chevron-circle-right"></i></button>
                     <input type="radio" id="stern5" name="bewertung" value="5"><label for="stern5" title="5_Sterne">5 Sterne</label> 
                     <input type="radio" id="stern4" name="bewertung" value="4"><label for="stern4" title="4_Sterne">4 Sterne</label> 
                     <input type="radio" id="stern3" name="bewertung" value="3"><label for="stern3" title="3_Sterne">3 Sterne</label> 
@@ -33,12 +35,13 @@
                     <input type="radio" id="stern1" name="bewertung" value="1"><label for="stern1" title="1_Stern">1 Stern</label>
                     
                 </span> 
-                <br>                
-                            
+                <br>                            
                 <br>
-                <textarea maxlength="244" rows="2" class="tkommentar">Schreibe einen Kommentar</textarea>
+                <div class="kommentardisplay">PH_Username: PH_Kommentar</div>
                 <br>
-                <button class="icon-login" type="submit">Senden</button>
+                <textarea maxlength="244" rows="2" class="tkommentar" placeholder="Schreibe einen Kommentar"></textarea>
+                <br>
+                <button class="kommentarbtn" type="submit"><i class="fas fa-paper-plane"> Absenden</i></button>
                 <br>
             </div>    
         </c:forEach>
