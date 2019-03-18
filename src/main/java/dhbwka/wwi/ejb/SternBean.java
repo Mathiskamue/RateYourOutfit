@@ -16,22 +16,20 @@ import javax.persistence.PersistenceContext;
  * @author thoma
  */
 @Stateless
-public class SternBean {
-    
-                            /*extends EntityBean<Stern, Long> {
+public class SternBean extends EntityBean<Stern, Long> {
         
         public SternBean() {
         super(Stern.class);
-        }*/
+        }
     
-    @PersistenceContext
-    EntityManager em;
-    
-    public Stern saveStern (Stern stern){
+        /*    @PersistenceContext
+        EntityManager em;
+        
+        public Stern saveStern (Stern stern){
         System.out.println(stern.getStern());
         em.persist(stern);
-        return em.merge(stern);
+        return em.merge(stern);*/
     
     }
 
-}
+

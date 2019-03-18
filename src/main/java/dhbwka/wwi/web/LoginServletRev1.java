@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  * @author thoma
  */
 @WebServlet(urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
+public class LoginServletRev1 extends HttpServlet {
 
     public static final String URL = "/login";
 
@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             request.setAttribute("error", "Bitte gib deinen Namen und dein Passwort ein. Solltest du noch kein Benutzer bzw. Passwort haben,registriere dich");
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-            response.sendRedirect(request.getContextPath() + LoginServlet.URL);
+            response.sendRedirect(request.getContextPath() + LoginServletRev1.URL);
         }
 
     }

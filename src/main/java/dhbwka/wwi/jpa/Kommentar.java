@@ -43,8 +43,6 @@ public class Kommentar implements Serializable {
     public void setText(String text) {
         this.text = text;
     }
-    private String h = "Hallo";
-
     public Long getId() {
         return id;
     }

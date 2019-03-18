@@ -62,7 +62,7 @@ public class KommentarServlet extends HttpServlet {
         Stern star = new Stern();
         star.setStern(stern);
         System.out.println(stern);
-        this.sternBean.saveStern(star);
+        this.sternBean.saveNew(star);
 
         response.sendRedirect(request.getContextPath() + KommentarServlet.URL);
 

@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -31,6 +32,7 @@ public class Benutzer implements Serializable {
     private String passwort = "";
     private String art = "";
     private double score = 0;
+    @NotNull(message = "Der Benutzername darf nicht leer sein.")
     private String name = "";
 
     public Benutzer(){

@@ -14,10 +14,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
-//Hier können sich die Benutzer auf der Seite anmelden 
+<%-- Hier können sich die Benutzer auf der Seite regististrieren  --%>
 <template:base>
     <jsp:attribute name="title">
-        Login
+       SignUp
     </jsp:attribute>
 
     <jsp:attribute name="head">
@@ -37,13 +37,18 @@
                         <span class="required">*</span>
                     </label>
                     <input type="text" name="r_username">
-                  
 
                     <label for="password">
                         Passwort:
                         <span class="required">*</span>
                     </label>
-                    <input type="password" name="r_password">
+                    <input type="text" name="r_password">
+                    
+                    <label for="email">
+                        E-Mail Adresse:
+                        <span class="required">*</span>
+                    </label>
+                    <input type="email" name="e_mail">
 
                     <%-- Button zum Abschicken --%>
                     <button class="icon-login" type="submit">
@@ -51,8 +56,7 @@
                     </button>
                 </div>
             </form>
-                      <c:out value="${error}"></c:out>
-                      <a id="signup" class="nav-link" href="/RateYourOutfit/signup">Registrierung </a>
+                    <c:out value="${usererror}"></c:out>
         </div>
     </jsp:attribute>
 </template:base>
