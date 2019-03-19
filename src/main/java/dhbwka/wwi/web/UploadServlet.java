@@ -6,6 +6,7 @@
 package dhbwka.wwi.web;
 
 import dhbwka.wwi.ejb.BildBean;
+import dhbwka.wwi.jpa.Bild;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -60,35 +61,44 @@ public class UploadServlet extends HttpServlet {
             throws ServletException, IOException {
         
         request.setCharacterEncoding("utf-8");
+        System.out.println("testen");
         
             
-                BildForm form = new BildForm();
-                form.setBeschreibung(request.getParameter("beschreibung"));
-                Part filepart = request.getPart("picture");
-                InputStream inputStream = filepart.getInputStream();         
-                form.setBild(IOUtils.toByteArray(inputStream));
+        if(request.getParameter("hochladen")!=null){
+            BildForm form = new BildForm();
+            System.out.println(form.getId());
+            form.setBeschreibung(request.getParameter("beschreibung"));
+            Part filepart = request.getPart("picture");
+            InputStream inputStream = filepart.getInputStream();         
+            form.setBild(IOUtils.toByteArray(inputStream));  
+            Bild testbild = bildBean.createNewBild2(form.getBild());
+            form.setId(testbild.getId());
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("bild_form", form);
+            response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+        }
+        else{
+            HttpSession session = request.getSession();
+            BildForm form =(BildForm) session.getAttribute("bild_form");
+            form.setBeschreibung(request.getParameter("beschreibung"));
                 
-                form.checkValues();
+            form.checkValues();
                 
-                if (!form.errors.isEmpty()) {
-                    // Formular erneut anzeigen, wenn es Fehler gibt
-                    HttpSession session = request.getSession();
-                    session.setAttribute("bild_form", form);
+            if (!form.errors.isEmpty()) {
+                // Formular erneut anzeigen, wenn es Fehler gibt
+                HttpSession session2 = request.getSession();
+                session2.setAttribute("bild_form", form);
 
-                    response.sendRedirect(request.getContextPath() + UploadServlet.URL);
-                    return;
-                }
-                
-                
-                bildBean.createNewBild(form.getBeschreibung(), form.getBild());
-                response.sendRedirect(request.getContextPath() + UebersichtServlet.URL);
-                
-               
-                
-            
-            
-        
-        
+                response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+                return;
+            }
+            /*Bild test = bildBean.findBildById(form.getId());
+            test.setBeschreibung(form.getBeschreibung());*/
+            bildBean.createNewBild(form.getBeschreibung(), form.getBild());
+            response.sendRedirect(request.getContextPath() + UebersichtServlet.URL);
+            System.out.println("button2");
+        }   
     }
     
 }

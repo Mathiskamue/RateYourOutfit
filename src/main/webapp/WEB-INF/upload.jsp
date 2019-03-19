@@ -25,11 +25,19 @@
             
             <input type="file" name="picture" />
             
+            <button type="submit" name="hochladen" value="hochladen">Bild Hochladen</button>
+            <br>
             
-            <input type="text" name="beschreibung" placeholder="Dein Text" value="${bild_form.beschreibung}" maxlength="244"/> <br>
-            <button type="submit" name="first">Hochladen</button>
-        </form>
         
+        
+        <c:if test="${bild_form.id != 0}">
+                <img src="http://localhost:8080/RateYourOutfit/bild?id=${bild_form.id}" class="images">
+                <br>
+                <input type="text" name="beschreibung" placeholder="Dein Text" value="${bild_form.beschreibung}" maxlength="244"/>
+                <br>
+                <button type="submit" name="abschicken" value="testen">Abschicken</button>
+        </c:if>
+            
         <c:if test="${!empty bild_form.errors}">
             <ul class="errors">
                 <c:forEach items="${bild_form.errors}" var="error">
@@ -37,6 +45,7 @@
                 </c:forEach>
             </ul>
         </c:if>
+        </form>
             
          
     

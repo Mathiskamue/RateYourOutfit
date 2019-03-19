@@ -27,7 +27,6 @@
                 <img src="http://localhost:8080/RateYourOutfit/bild?id=${bildid}" class="images">
                 <br>               
                 <span class="sternebewertung"> 
-                    <button class="bewertungbtn" type="submit"><i class="fas fa-chevron-circle-right"></i></button>
                     <input type="radio" id="stern5" name="bewertung" value="5"><label for="stern5" title="5_Sterne">5 Sterne</label> 
                     <input type="radio" id="stern4" name="bewertung" value="4"><label for="stern4" title="4_Sterne">4 Sterne</label> 
                     <input type="radio" id="stern3" name="bewertung" value="3"><label for="stern3" title="3_Sterne">3 Sterne</label> 

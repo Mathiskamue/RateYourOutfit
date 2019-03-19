@@ -41,7 +41,7 @@ public class PictureServlet extends HttpServlet {
         }
 
         response.setContentType("image/jpeg");
-        Bild bild = this.bildBean.findKommentarById(id);
+        Bild bild = this.bildBean.findBildById(id);
         byte[] imageBytes = bild.getBild();
         response.setContentLength(imageBytes.length);
         response.getOutputStream().write(imageBytes);

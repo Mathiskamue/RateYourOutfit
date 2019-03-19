@@ -26,11 +26,16 @@ public class BildBean {
         em.persist(bild);
         return em.merge(bild);
     }
+    public Bild createNewBild2(byte[] picture){
+        Bild bild = new Bild("", picture);
+        em.persist(bild);
+        return em.merge(bild);
+    }
     public List<Bild> findAllKommentare(){
         return em.createQuery("SELECT w FROM BILD w").getResultList();
     }
     
-    public Bild findKommentarById(long id) {
+    public Bild findBildById(long id) {
         return em.find(Bild.class, id);
     }
     public List<Integer> findAllIds(){

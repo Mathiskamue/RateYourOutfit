@@ -82,14 +82,7 @@ span.sternebewertung > label:hover ~ input:checked ~ label {
         
 }
 
-.bewertungbtn{
-  background-color: rgba(255, 0, 0, 0.0);; 
-  border: none; 
-  color: #FFD700; 
-  padding: 12px 16px; 
-  font-size: 150%; 
-  cursor: pointer; 
-}
+
 .kommentarbtn{
   background-color: rgba(255, 0, 0, 0.0);; 
   border: none; 
