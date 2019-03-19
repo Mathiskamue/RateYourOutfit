@@ -24,25 +24,45 @@
         <title>RateYourOutfit | ${title}</title>
 
         <jsp:invoke fragment="head"/>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css"/>" >
         
     </head>
     
-    <body>
+    <body  id="background">
         <header>
             <!-- Navigation -->
             <section id="navigation" class="container-fluid">
-                <div id="nav-item"class="row">
-                        <a id="home"class="nav-link" href="/RateYourOutfit/index">Home</a>
-                        <a id="upload" class="nav-link" href="/RateYourOutfit/upload">Upload</a>
-                        <a id="login"class="nav-link" href="/RateYourOutfit/login">LogIn</a>
-                        <a id="overview"class="nav-link" href="/RateYourOutfit/comment">Overview</a>
+                
+                <div id="tab" id="nav-item" class="row">
+                    <div class="col-sm-6">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="/RateYourOutfit/index">Home</a></li>
+                            <li><a href="/RateYourOutfit/upload">Upload</a></li>
+                            <li><a href="/RateYourOutfit/login">LogIn</a></li>
+                            <li><a href="/RateYourOutfit/bild">Overview</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-1">
+                         <p>Scorepunktzahl</p>
+                    </div>
+                    <div class="col-sm-1">
+                         <p>Profilname</p>
+                    </div>
                 </div>
             </section>
         </header>
         <!-- Hauptinhalt der Seite -->
-        <main>    
-            <h1>Willkommen bei RateYourOutfit :)</h1>
+        <main>  
+            <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-5">
+                   <h1 id="kursiv">Willkommen bei RateYourOutfit </h1> 
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            
             <jsp:invoke fragment="main"/>
             
         </main>
