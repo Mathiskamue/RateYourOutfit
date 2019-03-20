@@ -41,6 +41,9 @@ public class BildBean {
     public List<Integer> findAllIds(){
         return em.createQuery("SELECT w.id FROM Bild w").getResultList();
     }
+    public void setBeschreibung(String beschreibung, long id){
+        em.createQuery("Update Bild SET w.beschreibung = :beschreibung WHERE w.id = :id");
+    }
     
     
     
