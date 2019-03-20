@@ -14,7 +14,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
-//Hier können sich die Benutzer auf der Seite anmelden 
+ 
 <template:base>
     <jsp:attribute name="title">
         Login

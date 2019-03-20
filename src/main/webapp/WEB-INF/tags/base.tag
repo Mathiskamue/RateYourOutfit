@@ -17,7 +17,7 @@
 <%-- any content can be specified here e.g.: --%>
 
 <!DOCTYPE html>
-<html>
+<html >
     <head>
         <meta charset="utf-8">
         
@@ -29,7 +29,7 @@
         
     </head>
     
-    <body  id="background">
+    <body id="background" >
         <header>
             <!-- Navigation -->
             <section id="navigation" class="container-fluid">
@@ -37,13 +37,13 @@
                 <div id="tab" id="nav-item" class="row">
                     <div class="col-sm-6">
                         <ul class="nav nav-pills nav-justified">
-                            <li><a href="/RateYourOutfit/index">Home</a></li>
+                            <li><a href="/RateYourOutfit/">Home</a></li>
                             <li><a href="/RateYourOutfit/upload">Upload</a></li>
                             <li><a href="/RateYourOutfit/login">LogIn</a></li>
-                            <li><a href="/RateYourOutfit/bild">Overview</a></li>
+                            <li><a href="/RateYourOutfit/uebersicht">Overview</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-2"></div>
+                    <div class="col-sm-3"></div>
                     <div class="col-sm-1">
                          <p>Scorepunktzahl</p>
                     </div>
@@ -66,8 +66,9 @@
             <jsp:invoke fragment="main"/>
             
         </main>
-    </body>
-    <footer>
+        <footer>
         
-    </footer>
+        </footer>
+    </body>
+    
 </html>
