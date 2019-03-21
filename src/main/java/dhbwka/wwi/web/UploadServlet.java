@@ -9,6 +9,7 @@ import dhbwka.wwi.ejb.BildBean;
 import dhbwka.wwi.jpa.Bild;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -61,12 +62,10 @@ public class UploadServlet extends HttpServlet {
             throws ServletException, IOException {
         
         request.setCharacterEncoding("utf-8");
-        System.out.println("testen");
         
             
         if(request.getParameter("hochladen")!=null){
             BildForm form = new BildForm();
-            System.out.println(form.getId());
             form.setBeschreibung(request.getParameter("beschreibung"));
             Part filepart = request.getPart("picture");
             InputStream inputStream = filepart.getInputStream();         
@@ -81,8 +80,8 @@ public class UploadServlet extends HttpServlet {
         else{
             HttpSession session = request.getSession();
             BildForm form =(BildForm) session.getAttribute("bild_form");
+            System.out.println("1.Id überprüfung" + form.getId());
             form.setBeschreibung(request.getParameter("beschreibung"));
-                
             form.checkValues();
                 
             if (!form.errors.isEmpty()) {
@@ -95,7 +94,8 @@ public class UploadServlet extends HttpServlet {
             }
             /*Bild test = bildBean.findBildById(form.getId());
             test.setBeschreibung(form.getBeschreibung());*/
-            bildBean.createNewBild(form.getBeschreibung(), form.getBild());
+            System.out.println("2.Id überprüfung" + form.getId());
+            bildBean.setBeschreibung(form.getBeschreibung(), form.getId());
             response.sendRedirect(request.getContextPath() + UebersichtServlet.URL);
             System.out.println("button2");
         }   

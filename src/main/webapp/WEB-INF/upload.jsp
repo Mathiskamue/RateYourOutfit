@@ -16,7 +16,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="head">
-       
+       <link rel="stylesheet" href="<c:url value="/css/upload.css"/>" />
     </jsp:attribute>
     <jsp:attribute name="main">
         <h1>Hier kannst du dein Bild hochladen!</h1>
@@ -31,11 +31,13 @@
         
         
         <c:if test="${bild_form.id != 0}">
-                <img src="http://localhost:8080/RateYourOutfit/bild?id=${bild_form.id}" class="images">
+            <div class="bildtest">
+                <img src="http://localhost:8080/RateYourOutfit/bild?id=${bild_form.id}" class="image">
                 <br>
-                <input type="text" name="beschreibung" placeholder="Dein Text" value="${bild_form.beschreibung}" maxlength="244"/>
+                <input type="text" name="beschreibung" placeholder="Dein Text" value="${bild_form.beschreibung}" maxlength="244" class="beschreibung"> 
                 <br>
-                <button type="submit" name="abschicken" value="testen">Abschicken</button>
+                <button type="submit" name="abschicken" value="testen">Abschicken</button>  
+            <div>
         </c:if>
             
         <c:if test="${!empty bild_form.errors}">

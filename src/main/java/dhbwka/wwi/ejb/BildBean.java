@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -41,8 +42,22 @@ public class BildBean {
     public List<Integer> findAllIds(){
         return em.createQuery("SELECT w.id FROM Bild w").getResultList();
     }
-    public void setBeschreibung(String beschreibung, long id){
-        em.createQuery("Update Bild SET w.beschreibung = :beschreibung WHERE w.id = :id");
+    public Bild setBeschreibung(String beschreibung, long id){
+        if(id!=0){
+            Bild bild = findBildById(id);
+            Bild newbild = new Bild(beschreibung, bild.getBild());
+            em.persist(newbild);
+            Query query;
+            query = em.createQuery("Delete FROM Bild w WHERE w.id = :id");
+            query.setParameter("id", id);
+            query.executeUpdate();
+            return em.merge(newbild);
+        }
+        else{
+            System.out.println("ID = 0");
+            Bild bild = new Bild();
+            return bild;
+        }
     }
     
     
