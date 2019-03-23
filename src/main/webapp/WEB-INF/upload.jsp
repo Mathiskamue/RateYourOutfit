@@ -16,25 +16,30 @@
     </jsp:attribute>
 
     <jsp:attribute name="head">
-       <link rel="stylesheet" href="<c:url value="/css/upload.css"/>" />
+       <link rel="stylesheet" href="<c:url value="/css/upload2.css"/>" />
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </jsp:attribute>
     <jsp:attribute name="main">
-        <h1>Hier kannst du dein Bild hochladen!</h1>
+        <div class="ueberschrift1">Hier kannst du dein Bild hochladen!</div>
+        <br>
         <form method="POST" enctype="multipart/form-data">
            
+            <div class="hochladen">
+                <input type="file" name="picture" class="upload" />
+                <div class="hochladbtn"><button class="anzeigebtn" type="submit" name="hochladen" value="hochladen">Bild anzeigen</button></div> 
+            </div>
             
-            <input type="file" name="picture" />
-            
-            <button type="submit" name="hochladen" value="hochladen">Bild Hochladen</button>
-            <br>
             
         
         
         <c:if test="${bild_form.id != 0}">
             <div class="bildtest">
+                <br>
+                <div>So würde dein Bild später angezeigt werden:</div>
                 <img src="http://localhost:8080/RateYourOutfit/bild?id=${bild_form.id}" class="image">
                 <br>
-                <input type="text" name="beschreibung" placeholder="Dein Text" value="${bild_form.beschreibung}" maxlength="244" class="beschreibung"> 
+                <input class="textinput" type="text" name="beschreibung" placeholder="Dein Text" value="${bild_form.beschreibung}" maxlength="244" class="beschreibung"> 
+                <textarea class="test" name="textarea" placeholder="Deine Beschreibung" maxlength="244"></textarea>
                 <br>
                 <button type="submit" name="abschicken" value="testen">Abschicken</button>  
             <div>

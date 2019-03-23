@@ -67,6 +67,7 @@ public class UploadServlet extends HttpServlet {
         if(request.getParameter("hochladen")!=null){
             BildForm form = new BildForm();
             form.setBeschreibung(request.getParameter("beschreibung"));
+            System.out.println("Beschreibung Textarea:" + request.getParameter("textarea"));
             Part filepart = request.getPart("picture");
             InputStream inputStream = filepart.getInputStream();         
             form.setBild(IOUtils.toByteArray(inputStream));  
@@ -96,6 +97,9 @@ public class UploadServlet extends HttpServlet {
             test.setBeschreibung(form.getBeschreibung());*/
             System.out.println("2.Id überprüfung" + form.getId());
             bildBean.setBeschreibung(form.getBeschreibung(), form.getId());
+            form = null;
+            HttpSession session3 = request.getSession();
+            session3.setAttribute("bild_form", form);
             response.sendRedirect(request.getContextPath() + UebersichtServlet.URL);
             System.out.println("button2");
         }   

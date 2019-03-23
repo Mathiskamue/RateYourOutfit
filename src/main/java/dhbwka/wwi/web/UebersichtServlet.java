@@ -6,6 +6,7 @@
 package dhbwka.wwi.web;
 
 import dhbwka.wwi.ejb.BildBean;
+import dhbwka.wwi.jpa.Bild;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -39,7 +40,11 @@ public class UebersichtServlet extends HttpServlet {
                 
         // Anfrage an die JSP weiterleiten
         List<Integer> ids = bildBean.findAllIds();
-        request.setAttribute("bildids", ids);
+        List<String> beschreibungen = bildBean.findAllDescriptions();
+        List<Bild> bilder = bildBean.findAllPictures();
+        /**request.setAttribute("bildids", ids);
+        request.setAttribute("bildbeschreibungen", beschreibungen); **/
+        request.setAttribute("bildids", bilder);
         
         
         request.getRequestDispatcher("/WEB-INF/uebersicht.jsp").forward(request, response);        

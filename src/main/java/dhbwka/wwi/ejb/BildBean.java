@@ -59,6 +59,14 @@ public class BildBean {
             return bild;
         }
     }
+
+    public List<String> findAllDescriptions() {
+        return em.createQuery("Select w.beschreibung From Bild w").getResultList();
+    }
+
+    public List<Bild> findAllPictures() {
+        return em.createQuery("Select w From Bild w").getResultList();
+    }
     
     
     

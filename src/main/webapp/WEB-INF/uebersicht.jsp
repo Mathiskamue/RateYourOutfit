@@ -19,29 +19,39 @@
     
 
     <jsp:attribute name="main">
-        <div class="anzeige">
+        <div class="container anzeige">
         <c:forEach items="${bildids}" var="bildid">
             <div class="einzeln">
-                <div style="display: inline" class="username">Placeholder_Username</div>
-                <div style="display: inline" class="sterne">PH_Bewertung</div>
-                <img src="http://localhost:8080/RateYourOutfit/bild?id=${bildid}" class="images">
-                <br>               
-                <span class="sternebewertung"> 
-                    <input type="radio" id="stern5" name="bewertung" value="5"><label for="stern5" title="5_Sterne">5 Sterne</label> 
-                    <input type="radio" id="stern4" name="bewertung" value="4"><label for="stern4" title="4_Sterne">4 Sterne</label> 
-                    <input type="radio" id="stern3" name="bewertung" value="3"><label for="stern3" title="3_Sterne">3 Sterne</label> 
-                    <input type="radio" id="stern2" name="bewertung" value="2"><label for="stern2" title="2_Sterne">2 Sterne</label> 
-                    <input type="radio" id="stern1" name="bewertung" value="1"><label for="stern1" title="1_Stern">1 Stern</label>
+                <div class="row uebersichtsrow">
+                <div style="display: inline" class="col-md-6 username">Placeholder_Username</div>
+                <div style="display: inline" class="col-md-6 sterne">PH_Bewertung</div>
+                </div>
+                    <img src="http://localhost:8080/RateYourOutfit/bild?id=${bildid.id}" class="images">
+                <div class="row">
                     
-                </span> 
-                <br>                            
-                <br>
-                <div class="kommentardisplay">PH_Username: PH_Kommentar</div>
-                <br>
-                <textarea maxlength="244" rows="2" class="tkommentar" placeholder="Schreibe einen Kommentar"></textarea>
-                <br>
-                <button class="kommentarbtn" type="submit"><i class="fas fa-paper-plane"> Absenden</i></button>
-                <br>
+                        <div class="col-md-12 beschreibungsdisplay" value="${bildid.beschreibung}">${bildid.beschreibung}</div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="sternebewertung"> 
+                            <input type="radio" id="stern5" name="bewertung" value="5"><label for="stern5" title="5_Sterne">5 Sterne</label> 
+                            <input type="radio" id="stern4" name="bewertung" value="4"><label for="stern4" title="4_Sterne">4 Sterne</label> 
+                            <input type="radio" id="stern3" name="bewertung" value="3"><label for="stern3" title="3_Sterne">3 Sterne</label> 
+                            <input type="radio" id="stern2" name="bewertung" value="2"><label for="stern2" title="2_Sterne">2 Sterne</label> 
+                            <input type="radio" id="stern1" name="bewertung" value="1"><label for="stern1" title="1_Stern">1 Stern</label>
+                        </span>
+                    </div>    
+                </div>
+                <div class="row">
+                    <div class="col-md-12 kommentardisplay"><b>PH_Username:</b> PH_Kommentar</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><textarea maxlength="244" rows="2" class="tkommentar" placeholder="Schreibe einen Kommentar"></textarea></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><button class="kommentarbtn" type="submit"><i class="fas fa-paper-plane"> Absenden</i></button></div>
+                </div>
             </div>    
         </c:forEach>
         </div>
