@@ -67,6 +67,13 @@ public class BildBean {
     public List<Bild> findAllPictures() {
         return em.createQuery("Select w From Bild w").getResultList();
     }
+    public void updateBild(byte[] bild, long id){
+        Query query;
+        query = em.createQuery("Update Bild w SET w.bild= :bild WHERE w.id = :id");
+        query.setParameter("bild", bild);
+        query.setParameter("id", id);
+        query.executeUpdate();
+    }
     
     
     

@@ -7,6 +7,7 @@ package dhbwka.wwi.jpa;
 
 import dhbwka.wwi.jpa.Benutzer;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -30,6 +31,7 @@ public class Bild implements Serializable {
 
     private String beschreibung ="";
     private byte[] bild = null;
+    private LocalDate zeitpunkt;
     
     public Bild(){
         
@@ -38,6 +40,7 @@ public class Bild implements Serializable {
     public Bild(String beschreibung, byte[] bild){
         this.beschreibung = beschreibung;
         this.bild = bild;
+        zeitpunkt = LocalDate.now();
     }
 
     public Long getId() {
@@ -62,6 +65,12 @@ public class Bild implements Serializable {
 
     public void setBild(byte[] bild) {
         this.bild = bild;
+    }
+    public LocalDate getZeitpunkt(){
+        return zeitpunkt;
+    }
+    public void setZeitpunkt(LocalDate zeitpunkt){
+        this.zeitpunkt = zeitpunkt;
     }
    
 

@@ -65,18 +65,31 @@ public class UploadServlet extends HttpServlet {
         
             
         if(request.getParameter("hochladen")!=null){
-            BildForm form = new BildForm();
-            form.setBeschreibung(request.getParameter("beschreibung"));
-            System.out.println("Beschreibung Textarea:" + request.getParameter("textarea"));
-            Part filepart = request.getPart("picture");
-            InputStream inputStream = filepart.getInputStream();         
-            form.setBild(IOUtils.toByteArray(inputStream));  
-            Bild testbild = bildBean.createNewBild2(form.getBild());
-            form.setId(testbild.getId());
-            
             HttpSession session = request.getSession();
-            session.setAttribute("bild_form", form);
-            response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+            BildForm formtest =(BildForm) session.getAttribute("bild_form");
+            if(formtest.getId()!=0){
+                Part filepart = request.getPart("picture");
+                InputStream inputStream = filepart.getInputStream(); 
+                formtest.setBild(IOUtils.toByteArray(inputStream));
+                bildBean.updateBild(formtest.getBild(), formtest.getId());
+                
+                session.setAttribute("bild_form", formtest);
+                response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+            }
+            else{
+                BildForm form = new BildForm();
+                form.setBeschreibung(request.getParameter("beschreibung"));
+                System.out.println("Beschreibung Textarea:" + request.getParameter("textarea"));
+                Part filepart = request.getPart("picture");
+                InputStream inputStream = filepart.getInputStream();         
+                form.setBild(IOUtils.toByteArray(inputStream));  
+                Bild testbild = bildBean.createNewBild2(form.getBild());
+                form.setId(testbild.getId());
+
+                session.setAttribute("bild_form", form);
+                response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+            }
+            
         }
         else{
             HttpSession session = request.getSession();
@@ -99,9 +112,10 @@ public class UploadServlet extends HttpServlet {
             bildBean.setBeschreibung(form.getBeschreibung(), form.getId());
             form = null;
             HttpSession session3 = request.getSession();
-            session3.setAttribute("bild_form", form);
+            BildForm leerer = new BildForm();
+            session3.setAttribute("bild_form", leerer);
             response.sendRedirect(request.getContextPath() + UebersichtServlet.URL);
-            System.out.println("button2");
+            
         }   
     }
     
