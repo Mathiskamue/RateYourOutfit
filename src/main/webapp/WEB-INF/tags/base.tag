@@ -55,13 +55,7 @@
         </header>
         <!-- Hauptinhalt der Seite -->
         <main>  
-            <div class="row">
-                <div class="col-sm-5"></div>
-                <div class="col-sm-5">
-                   <h1 id="kursiv">Willkommen bei RateYourOutfit </h1> 
-                </div>
-                <div class="col-sm-2"></div>
-            </div>
+            
             
             <jsp:invoke fragment="main"/>
             

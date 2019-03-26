@@ -27,9 +27,22 @@
         
     <jsp:attribute name="main">
         <form method="Post">
-            <button class="icon-login" type="submit">
-                       Eingang
-            </button>
+            <div class="row">
+                    <h1 class="text" >RateYourOutfit</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p> Bereits registriert? </p>     
+                    <button class="icon-login" type="submit">
+                       LogIn
+                    </button>
+                     <p> Noch kein Mitglied, hier registrieren!</p>   
+                    <button class="icon-login" type="submit">
+                       Registrierung
+                    </button>
+                </div>  
+            </div>
+            
         </form>
     </jsp:attribute>
 </template:base>

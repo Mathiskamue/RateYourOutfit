@@ -44,13 +44,13 @@
                     </div>    
                 </div>
                 <div class="row">
-                    <div class="col-md-12 kommentardisplay"><b>PH_Username:</b> PH_Kommentar</div>
+                    <div  class="col-md-12 kommentardisplay text"><b>PH_Username:</b> PH_Kommentar</div>
                 </div>
                 <div class="row">
                     <div class="col-md-12"><textarea maxlength="244" rows="2" class="tkommentar" placeholder="Schreibe einen Kommentar"></textarea></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12"><button class="kommentarbtn" type="submit"><i class="fas fa-paper-plane"> Absenden</i></button></div>
+                    <div class="col-md-12"><button class="kommentarbtn" type="submit"><i class="fas fa-paper-plane text"> Absenden</i></button></div>
                 </div>
             </div>    
         </c:forEach>

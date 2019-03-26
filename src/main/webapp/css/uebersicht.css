@@ -2,15 +2,15 @@
 
  
 
-body{
-    background-image: url("outfit.jpg") !important;
+/* body{
+    background-image: url("outfit.jpg") !important; 
     background-repeat: no-repeat !important;
     background-size: 100% auto !important;
     background-attachment: fixed !important;
     background-position: 10% 0 !important;
     
     
-}
+}*/
 span#Bewertung { 
     line-height: 45px; 
     margin-bottom: 2%;
