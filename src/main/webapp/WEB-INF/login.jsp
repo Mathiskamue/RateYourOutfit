@@ -27,9 +27,11 @@
     
 
     <jsp:attribute name="main">
+        <p></p>
         <div class="container">
             <%--<form action="j_security_check" method="post" class="stacked">--%>
             <form method="POST">
+                
                 <div class="column">
                     <%-- Eingabefelder --%>
                     <label for="r_username">
@@ -46,7 +48,7 @@
                     <input type="password" name="r_password">
 
                     <%-- Button zum Abschicken --%>
-                    <button class="icon-login" type="submit">
+                    <button class="icon-login bu" type="submit">
                         Einloggen
                     </button>
                 </div>

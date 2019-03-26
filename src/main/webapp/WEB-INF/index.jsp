@@ -33,11 +33,11 @@
             <div class="row">
                 <div class="col-sm-3">
                     <p> Bereits registriert? </p>     
-                    <button class="icon-login" type="submit">
+                    <button class="icon-login bu" type="submit">
                        LogIn
                     </button>
                      <p> Noch kein Mitglied, hier registrieren!</p>   
-                    <button class="icon-login" type="submit">
+                    <button class="icon-login bu" type="submit">
                        Registrierung
                     </button>
                 </div>  
