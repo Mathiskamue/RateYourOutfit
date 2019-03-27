@@ -6,6 +6,8 @@
 package dhbwka.wwi.ejb;
 
 
+import dhbwka.wwi.jpa.Bild;
+import dhbwka.wwi.jpa.Kommentar;
 import dhbwka.wwi.jpa.Stern;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -29,6 +31,12 @@ public class SternBean extends EntityBean<Stern, Long> {
         System.out.println(stern.getStern());
         em.persist(stern);
         return em.merge(stern);*/
+        
+        public Stern createNewStern(int bewertung,Bild bild){
+        Stern stern = new Stern(bewertung, bild);
+        em.persist(stern);
+        return em.merge(stern);
+        }
     
     }
 

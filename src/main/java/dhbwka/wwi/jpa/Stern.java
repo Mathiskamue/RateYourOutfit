@@ -34,6 +34,11 @@ public class Stern implements Serializable {
     
     private int stern = 0;
 
+    public Stern(int bewertung, Bild bild) {
+        this.stern = bewertung;
+        this.bild = bild;
+    }
+
     public int getStern() {
         return stern;
     }

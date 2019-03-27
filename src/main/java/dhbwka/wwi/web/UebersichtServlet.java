@@ -6,7 +6,10 @@
 package dhbwka.wwi.web;
 
 import dhbwka.wwi.ejb.BildBean;
+import dhbwka.wwi.ejb.KommentarBean;
+import dhbwka.wwi.ejb.SternBean;
 import dhbwka.wwi.jpa.Bild;
+import dhbwka.wwi.jpa.Kommentar;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -33,17 +36,19 @@ public class UebersichtServlet extends HttpServlet {
     @EJB
     BildBean bildBean;
     
+    @EJB
+    KommentarBean kommentarBean;
+    
+    @EJB
+    SternBean sternBean;
+    
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         
                 
         // Anfrage an die JSP weiterleiten
-        List<Integer> ids = bildBean.findAllIds();
-        List<String> beschreibungen = bildBean.findAllDescriptions();
         List<Bild> bilder = bildBean.findAllPictures();
-        /**request.setAttribute("bildids", ids);
-        request.setAttribute("bildbeschreibungen", beschreibungen); **/
         request.setAttribute("bildids", bilder);
         
         
@@ -54,8 +59,57 @@ public class UebersichtServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        request.setCharacterEncoding("utf-8");
+        
+        if(request.getParameter("sendebtn")!= null){
+            String id = request.getParameter("sendebtn");
+            System.out.println("BildID: Kommentar: " + id );
+            String kommentarfeld = request.getParameter("kommentar"+id);
+            if(!(kommentarfeld.equals(""))){
+                Bild bild = bildBean.findBildById(Long.parseLong(id));
+                kommentarBean.createNewComment(kommentarfeld, bild); 
+            }          
+        }
+        else{
+            if(request.getParameter("bewertung1")!=null){
+                String id = request.getParameter("bewertung1");
+                System.out.println("BildID: Stern 1: " + id );
+                Bild bild = bildBean.findBildById(Long.parseLong(id));
+                sternBean.createNewStern(1, bild);
+            }
+            else if(request.getParameter("bewertung2")!=null){
+                String id = request.getParameter("bewertung2");
+                System.out.println("BildID: Stern 2: " + id );
+                Bild bild = bildBean.findBildById(Long.parseLong(id));
+                sternBean.createNewStern(2, bild);
+            }
+            else if(request.getParameter("bewertung3")!=null){
+                String id= request.getParameter("bewertung3");
+                System.out.println("BildID: Stern 3: " + id );
+                Bild bild = bildBean.findBildById(Long.parseLong(id));
+                sternBean.createNewStern(3, bild);
+            }
+            else if(request.getParameter("bewertung4")!=null){
+                String id= request.getParameter("bewertung4");
+                System.out.println("BildID: Stern 4: " + id );
+                Bild bild = bildBean.findBildById(Long.parseLong(id));
+                sternBean.createNewStern(4, bild);
+            }
+            else if(request.getParameter("bewertung5")!=null){
+                String id= request.getParameter("bewertung5");
+                System.out.println("BildID: Stern 5: " + id );
+                Bild bild = bildBean.findBildById(Long.parseLong(id));
+                sternBean.createNewStern(5, bild);
+            }
+        }
+        
+        
+        response.sendRedirect(request.getContextPath() + UploadServlet.URL);
         
         
     }
+    
+    
+            
     
 }

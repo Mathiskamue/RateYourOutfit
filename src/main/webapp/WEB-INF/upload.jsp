@@ -38,8 +38,8 @@
                 <div>So würde dein Bild später angezeigt werden:</div>
                 <img src="http://localhost:8080/RateYourOutfit/bild?id=${bild_form.id}" class="image">
                 <br>
-                <input class="textinput" type="text" name="beschreibung" placeholder="Dein Text" value="${bild_form.beschreibung}" maxlength="244" class="beschreibung"> 
-                <textarea class="test" name="textarea" placeholder="Deine Beschreibung" maxlength="244"></textarea>
+                
+                <textarea class="textarea" name="textarea" placeholder="Deine Beschreibung" maxlength="244" rows="3"></textarea>
                 <br>
                 <button type="submit" name="abschicken" value="testen">Abschicken</button>  
             <div>

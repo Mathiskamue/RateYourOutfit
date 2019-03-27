@@ -79,7 +79,7 @@ public class UploadServlet extends HttpServlet {
             else{
                 BildForm form = new BildForm();
                 form.setBeschreibung(request.getParameter("beschreibung"));
-                System.out.println("Beschreibung Textarea:" + request.getParameter("textarea"));
+                
                 Part filepart = request.getPart("picture");
                 InputStream inputStream = filepart.getInputStream();         
                 form.setBild(IOUtils.toByteArray(inputStream));  
@@ -94,8 +94,7 @@ public class UploadServlet extends HttpServlet {
         else{
             HttpSession session = request.getSession();
             BildForm form =(BildForm) session.getAttribute("bild_form");
-            System.out.println("1.Id überprüfung" + form.getId());
-            form.setBeschreibung(request.getParameter("beschreibung"));
+            form.setBeschreibung(request.getParameter("textarea"));
             form.checkValues();
                 
             if (!form.errors.isEmpty()) {
@@ -108,7 +107,6 @@ public class UploadServlet extends HttpServlet {
             }
             /*Bild test = bildBean.findBildById(form.getId());
             test.setBeschreibung(form.getBeschreibung());*/
-            System.out.println("2.Id überprüfung" + form.getId());
             bildBean.setBeschreibung(form.getBeschreibung(), form.getId());
             form = null;
             HttpSession session3 = request.getSession();

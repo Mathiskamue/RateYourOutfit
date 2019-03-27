@@ -32,8 +32,9 @@ public class Kommentar implements Serializable {
 
     }
 
-    public Kommentar(String text) {
+    public Kommentar(String text,Bild bild) {
         this.text = text;
+        this.bild =bild;
     }
 
     public String getText() {

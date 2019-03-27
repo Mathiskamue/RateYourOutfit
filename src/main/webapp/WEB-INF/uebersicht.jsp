@@ -19,6 +19,7 @@
     
 
     <jsp:attribute name="main">
+        <form method="POST">
         <div class="container anzeige">
         <c:forEach items="${bildids}" var="bildid">
             <div class="einzeln">
@@ -35,11 +36,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <span class="sternebewertung"> 
-                            <input type="radio" id="stern5" name="bewertung" value="5"><label for="stern5" title="5_Sterne">5 Sterne</label> 
-                            <input type="radio" id="stern4" name="bewertung" value="4"><label for="stern4" title="4_Sterne">4 Sterne</label> 
-                            <input type="radio" id="stern3" name="bewertung" value="3"><label for="stern3" title="3_Sterne">3 Sterne</label> 
-                            <input type="radio" id="stern2" name="bewertung" value="2"><label for="stern2" title="2_Sterne">2 Sterne</label> 
-                            <input type="radio" id="stern1" name="bewertung" value="1"><label for="stern1" title="1_Stern">1 Stern</label>
+                            <input type="submit" id="stern5" name="bewertung5" value="${bildid.id}"><label for="stern5" title="5_Sterne" value="${bildid.id}">5 Sterne</label> 
+                            <input type="submit" id="stern4" name="bewertung4" value="${bildid.id}"><label for="stern4" title="4_Sterne" value="${bildid.id}">4 Sterne</label> 
+                            <input type="submit" id="stern3" name="bewertung3" value="${bildid.id}"><label for="stern3" title="3_Sterne" value="${bildid.id}">3 Sterne</label> 
+                            <input type="submit" id="stern2" name="bewertung2" value="${bildid.id}"><label for="stern2" title="2_Sterne" value="${bildid.id}">2 Sterne</label> 
+                            <input type="submit" id="stern1" name="bewertung1" value="${bildid.id}"><label for="stern1" title="1_Stern" value="${bildid.id}">1 Stern</label>
                         </span>
                     </div>    
                 </div>
@@ -47,13 +48,14 @@
                     <div  class="col-md-12 kommentardisplay text"><b>PH_Username:</b> PH_Kommentar</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12"><textarea maxlength="244" rows="2" class="tkommentar" placeholder="Schreibe einen Kommentar"></textarea></div>
+                    <div class="col-md-12"><textarea maxlength="244" rows="2" name="kommentar${bildid.id}" class="tkommentar" placeholder="Schreibe einen Kommentar"></textarea></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12"><button class="kommentarbtn" type="submit"><i class="fas fa-paper-plane text"> Absenden</i></button></div>
+                    <div class="col-md-12"><button class="kommentarbtn" name="sendebtn" type="submit" value="${bildid.id}"><i class="fas fa-paper-plane text"> Absenden</i></button></div>
                 </div>
             </div>    
         </c:forEach>
         </div>
+        </form>
     </jsp:attribute>
 </template:base>

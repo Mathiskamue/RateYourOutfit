@@ -42,22 +42,12 @@ public class BildBean {
     public List<Integer> findAllIds(){
         return em.createQuery("SELECT w.id FROM Bild w").getResultList();
     }
-    public Bild setBeschreibung(String beschreibung, long id){
-        if(id!=0){
-            Bild bild = findBildById(id);
-            Bild newbild = new Bild(beschreibung, bild.getBild());
-            em.persist(newbild);
+    public void setBeschreibung(String beschreibung, long id){
             Query query;
-            query = em.createQuery("Delete FROM Bild w WHERE w.id = :id");
+            query = em.createQuery("Update Bild w SET w.beschreibung = :beschreibung WHERE w.id = :id");
+            query.setParameter("beschreibung", beschreibung);
             query.setParameter("id", id);
             query.executeUpdate();
-            return em.merge(newbild);
-        }
-        else{
-            System.out.println("ID = 0");
-            Bild bild = new Bild();
-            return bild;
-        }
     }
 
     public List<String> findAllDescriptions() {
@@ -65,7 +55,8 @@ public class BildBean {
     }
 
     public List<Bild> findAllPictures() {
-        return em.createQuery("Select w From Bild w").getResultList();
+        return em.createQuery("Select w From Bild w WHERE w.beschreibung <> ''").getResultList();
+        
     }
     public void updateBild(byte[] bild, long id){
         Query query;

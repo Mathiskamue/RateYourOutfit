@@ -45,3 +45,7 @@
     width:100%;
     height: 4%;
 }
+.textarea{
+    resize: none;
+    width: 100%;
+}
