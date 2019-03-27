@@ -43,7 +43,7 @@
                             <li><a href="/RateYourOutfit/uebersicht">Overview</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4"></div>
                     <div class="col-sm-1">
                          <p>Scorepunktzahl</p>
                     </div>
