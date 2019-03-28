@@ -26,11 +26,11 @@ import org.apache.commons.io.IOUtils;
  *
  * @author mathi
  */
-@WebServlet(urlPatterns="/upload")
+@WebServlet(urlPatterns="/app/upload/")
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
     
-    public static final String URL = "/upload";
+    public static final String URL = "/app/upload/";
     
     @EJB
     BildBean bildBean;
@@ -74,7 +74,8 @@ public class UploadServlet extends HttpServlet {
                 bildBean.updateBild(formtest.getBild(), formtest.getId());
                 
                 session.setAttribute("bild_form", formtest);
-                response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+                //response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+                response.sendRedirect(WebUtils.appUrl(request, "/app/upload/"));
             }
             else{
                 BildForm form = new BildForm();
@@ -87,7 +88,9 @@ public class UploadServlet extends HttpServlet {
                 form.setId(testbild.getId());
 
                 session.setAttribute("bild_form", form);
-                response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+                
+                //response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+                response.sendRedirect(WebUtils.appUrl(request, "/app/upload/"));
             }
             
         }
@@ -102,7 +105,8 @@ public class UploadServlet extends HttpServlet {
                 HttpSession session2 = request.getSession();
                 session2.setAttribute("bild_form", form);
 
-                response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+                //response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+                response.sendRedirect(WebUtils.appUrl(request, "/app/upload/"));
                 return;
             }
             /*Bild test = bildBean.findBildById(form.getId());
@@ -112,7 +116,8 @@ public class UploadServlet extends HttpServlet {
             HttpSession session3 = request.getSession();
             BildForm leerer = new BildForm();
             session3.setAttribute("bild_form", leerer);
-            response.sendRedirect(request.getContextPath() + UebersichtServlet.URL);
+           // response.sendRedirect(request.getContextPath() + UebersichtServlet.URL);
+           response.sendRedirect(WebUtils.appUrl(request, "/app/uebersicht/"));
             
         }   
     }

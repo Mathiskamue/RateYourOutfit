@@ -6,7 +6,6 @@
 package dhbwka.wwi.jpa;
 
 import dhbwka.wwi.jpa.Bild;
-import dhbwka.wwi.jpa.Benutzer;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,8 +62,6 @@ public class Stern implements Serializable {
     public String toString() {
         return "dhbwka.wwi.web.Stern[ id=" + id + " ]";
     }
-    @ManyToOne
-    Benutzer benutzer = null;
 
     @ManyToOne
     Bild bild = null;

@@ -31,29 +31,7 @@
     
     <body id="background" >
         <header>
-            <!-- Navigation -->
-            <section id="navigation" class="container-fluid">
-                
-                <div id="nav-item" class="row tab">
-                    <div class="col-sm-6">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><a href="/RateYourOutfit/">Home</a></li>
-                            <li><a href="/RateYourOutfit/upload">Upload</a></li>
-                            <li><a href="/RateYourOutfit/uebersicht">Overview</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><li><a href="/RateYourOutfit/login">LogIn</a></li></li>
-                        </ul>
-                             
-                    </div>
-                    <div class="col-sm-2">
-                         <p class="weiß" >Profilname | Scorepunktzahl</p>
-                    </div>
-                </div>
-            </section>
+          
         </header>
         <!-- Hauptinhalt der Seite -->
         <main>  

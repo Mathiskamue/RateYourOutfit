@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author DEETMUMI
- */
+ 
 public class UploadServletTest {
     
     public UploadServletTest() {
@@ -41,7 +41,7 @@ public class UploadServletTest {
 
     /**
      * Test of doGet method, of class UploadServlet.
-     */
+    
     @Test
     public void testDoGet() throws Exception {
         System.out.println("doGet");
@@ -55,7 +55,7 @@ public class UploadServletTest {
 
     /**
      * Test of doPost method, of class UploadServlet.
-     */
+    
     @Test
     public void testDoPost() throws Exception {
         System.out.println("doPost");
@@ -67,4 +67,4 @@ public class UploadServletTest {
         fail("The test case is a prototype.");
     }
     
-}
+}*/

@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author DEETMUMI
- */
+ 
 public class BildTest {
     
     public BildTest() {
@@ -39,7 +39,7 @@ public class BildTest {
 
     /**
      * Test of getId method, of class Bild.
-     */
+     
     @Test
     public void testGetId() {
         System.out.println("getId");
@@ -53,7 +53,7 @@ public class BildTest {
 
     /**
      * Test of setId method, of class Bild.
-     */
+     
     @Test
     public void testSetId() {
         System.out.println("setId");
@@ -66,7 +66,7 @@ public class BildTest {
 
     /**
      * Test of getBeschreibung method, of class Bild.
-     */
+     
     @Test
     public void testGetBeschreibung() {
         System.out.println("getBeschreibung");
@@ -80,7 +80,7 @@ public class BildTest {
 
     /**
      * Test of setBeschreibung method, of class Bild.
-     */
+     
     @Test
     public void testSetBeschreibung() {
         System.out.println("setBeschreibung");
@@ -93,7 +93,7 @@ public class BildTest {
 
     /**
      * Test of getBild method, of class Bild.
-     */
+     
     @Test
     public void testGetBild() {
         System.out.println("getBild");
@@ -107,7 +107,7 @@ public class BildTest {
 
     /**
      * Test of setBild method, of class Bild.
-     */
+     
     @Test
     public void testSetBild() {
         System.out.println("setBild");
@@ -120,7 +120,7 @@ public class BildTest {
 
     /**
      * Test of getTimestamp method, of class Bild.
-     */
+    
     @Test
     public void testGetTimestamp() {
         System.out.println("getTimestamp");
@@ -134,7 +134,7 @@ public class BildTest {
 
     /**
      * Test of setTimestamp method, of class Bild.
-     */
+    
     @Test
     public void testSetTimestamp() {
         System.out.println("setTimestamp");
@@ -147,7 +147,7 @@ public class BildTest {
 
     /**
      * Test of toString method, of class Bild.
-     */
+    
     @Test
     public void testToString() {
         System.out.println("toString");
@@ -159,4 +159,4 @@ public class BildTest {
         fail("The test case is a prototype.");
     }
     
-}
+}*/

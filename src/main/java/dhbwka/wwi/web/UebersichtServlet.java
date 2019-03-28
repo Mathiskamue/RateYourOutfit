@@ -28,10 +28,10 @@ import org.apache.commons.io.IOUtils;
  * @author mathi
  */
 
-@WebServlet(urlPatterns="/uebersicht")
+@WebServlet(urlPatterns="/app/uebersicht/")
 public class UebersichtServlet extends HttpServlet {
     
-    public static final String URL = "/uebersicht";
+    //public static final String URL = "/app/uebersicht";
     
     @EJB
     BildBean bildBean;
@@ -116,7 +116,8 @@ public class UebersichtServlet extends HttpServlet {
         }
         
         
-        response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+        //response.sendRedirect(request.getContextPath() + UploadServlet.URL);
+        response.sendRedirect(WebUtils.appUrl(request, "/app/upload/"));
         
         
     }

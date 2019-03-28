@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright © 2018 Dennis Schulmeister-Zimolong
+ * 
+ * E-Mail: dhbw@windows3.de
+ * Webseite: https://www.wpvs.de/
+ * 
+ * Dieser Quellcode ist lizenziert unter einer
+ * Creative Commons Namensnennung 4.0 International Lizenz.
  */
 package dhbwka.wwi.web;
 
@@ -11,30 +15,37 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author thoma
+ * Servlet für die Startseite /index.html. Hier wird der Anwender einfach auf
+ * die Übersichtsseite weitergeleitet. Falls er noch nicht eingeloggt ist, sorgt
+ * der Applikationsserver von alleine dafür, zunächst die Loginseite anzuzeigen.
  */
-//Servlet das auf die Startseite verweißt 
-@WebServlet(urlPatterns={"/index.html"})
-public class IndexServlet extends HttpServlet{
+@WebServlet(urlPatterns = {"/index.html"})
+public class IndexServlet extends HttpServlet {
 
-
-@Override
+    /**
+     * GET-Anfrage: Seite anzeigen
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     * @throws ServletException
+     */
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        
-        request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
-    }
+            throws IOException, ServletException {
+        String username = request.getParameter("r_username");
+        HttpSession session = request.getSession();
+        session.getAttribute("");
 
-public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        
-        response.sendRedirect(request.getContextPath() + LoginServlet.URL);
+        session.setAttribute("session_username", username);
+
+        // Und die Seite nochmal laden lassen // response.sendRedirect(request.getRequestURI());
+        response.sendRedirect(WebUtils.appUrl(request, "/app/uebersicht/"));
+
     }
+}
 
     
-}

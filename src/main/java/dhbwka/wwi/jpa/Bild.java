@@ -5,7 +5,7 @@
  */
 package dhbwka.wwi.jpa;
 
-import dhbwka.wwi.jpa.Benutzer;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -84,8 +84,7 @@ public class Bild implements Serializable {
         return "dhbwka.wwi.web.Bild[ id=" + id + " ]";
     }
     
-    @ManyToOne
-    Benutzer benutzer = null;
+
     
     @OneToMany
     (mappedBy="bild")

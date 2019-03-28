@@ -6,7 +6,6 @@
 package dhbwka.wwi.jpa;
 
 import dhbwka.wwi.jpa.Bild;
-import dhbwka.wwi.jpa.Benutzer;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,8 +42,6 @@ public class Superlike implements Serializable {
         return "dhbwka.wwi.web.Superlike[ id=" + id + " ]";
     }
     
-    @ManyToOne
-    Benutzer benutzer = null;
     
     @ManyToOne
     Bild bild = null;

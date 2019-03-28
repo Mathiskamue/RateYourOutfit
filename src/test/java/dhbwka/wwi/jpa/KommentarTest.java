@@ -36,6 +36,7 @@ public class KommentarTest {
     @After
     public void tearDown() {
     }
+}
 
     /**
      * Test of getText method, of class Kommentar.
@@ -44,14 +45,14 @@ public class KommentarTest {
 
     /**
      * Test of toString method, of class Kommentar.
-     */
+     
     @Test
-    public void testToString() {
-        System.out.println("toString");
-        Kommentar instance = new Kommentar("text to test");
-        String expResult = "text to test";
-        String result = instance.getText();
-        assertEquals(expResult, result);
+     public void testToString() {
+    System.out.println("toString");
+    Kommentar instance = new Kommentar("text to test");
+    String expResult = "text to test";
+    String result = instance.getText();
+    assertEquals(expResult, result);
     }
     
-}
+}*/

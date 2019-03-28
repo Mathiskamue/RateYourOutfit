@@ -7,7 +7,6 @@ package dhbwka.wwi.web;
 
 import dhbwka.wwi.ejb.KommentarBean;
 import dhbwka.wwi.ejb.SternBean;
-import dhbwka.wwi.jpa.Benutzer;
 import dhbwka.wwi.jpa.Kommentar;
 import dhbwka.wwi.jpa.Stern;
 import java.io.IOException;
@@ -25,10 +24,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author thoma
  */
-@WebServlet(urlPatterns = {"/comment"})
+@WebServlet(urlPatterns = {"/app/comment/"})
 public class KommentarServlet extends HttpServlet {
 
-    public static final String URL = "/comment";
+    public static final String URL = "/app/comment/";
 
     @EJB
     KommentarBean kommentarBean;
@@ -42,7 +41,7 @@ public class KommentarServlet extends HttpServlet {
         List<Kommentar> findText = this.kommentarBean.findAll();
         request.setAttribute("findText", findText);
 
-        request.getRequestDispatcher("/WEB-INF/comment.jsp").forward(request, response);
+         request.getRequestDispatcher("/WEB-INF/comment.jsp").forward(request, response);
 
     }
 
@@ -64,7 +63,7 @@ public class KommentarServlet extends HttpServlet {
         System.out.println(stern);
         this.sternBean.saveNew(star);
 
-        response.sendRedirect(request.getContextPath() + KommentarServlet.URL);
+       response.sendRedirect(WebUtils.appUrl(request, "/app/comment/"));
 
     }
 
