@@ -48,7 +48,7 @@
                         <div style="display: inline" class="col-md-6 username">Placeholder_Username</div>
                         <div style="display: inline" class="col-md-6 sterne">PH_Bewertung</div>
                     </div>
-                    <img src="http://localhost:8080/RateYourOutfit/bild?id=${bildid.id}" class="images">
+                    <img src="https://localhost:8443/RateYourOutfit/app/bild?id=${bildid.id}" class="images">
                     <div class="row">
 
                         <div class="col-md-12 beschreibungsdisplay" value="${bildid.beschreibung}">${bildid.beschreibung}</div>

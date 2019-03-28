@@ -57,7 +57,7 @@
                 <div class="bildtest">
                     <br>
                     <div>So würde dein Bild später angezeigt werden:</div>
-                    <img src="http://localhost:8080/RateYourOutfit/bild?id=${bild_form.id}" class="image">
+                    <img src="https://localhost:8443/RateYourOutfit/app/bild?id=${bild_form.id}" class="image">
                     <br>
 
                     <textarea class="textarea" name="textarea" placeholder="Deine Beschreibung" maxlength="244" rows="3"></textarea>

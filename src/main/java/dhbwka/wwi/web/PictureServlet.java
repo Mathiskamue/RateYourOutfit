@@ -20,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathi
  */
-@WebServlet(urlPatterns = "/app/bild/")
+@WebServlet(urlPatterns = "/app/bild")
 public class PictureServlet extends HttpServlet {
 
-    public static final String URL = "/app/bild/";
+    public static final String URL = "/app/bild";
 
     @EJB
     BildBean bildBean;
