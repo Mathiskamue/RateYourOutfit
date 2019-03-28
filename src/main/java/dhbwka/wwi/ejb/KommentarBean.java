@@ -12,6 +12,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -31,5 +32,11 @@ public class KommentarBean extends EntityBean<Kommentar, Long> {
         Kommentar kommentar = new Kommentar(comment, bild);
         em.persist(kommentar);
         return em.merge(kommentar);
+    }
+
+    public List<Kommentar> findCommentsById(long id) {
+        return em.createQuery("Select w From Kommentar w WHERE w.bild.id = :id")
+                .setParameter("id", id)
+                .getResultList();
     }
 }

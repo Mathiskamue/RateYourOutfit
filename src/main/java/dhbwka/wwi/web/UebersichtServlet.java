@@ -50,6 +50,18 @@ public class UebersichtServlet extends HttpServlet {
         // Anfrage an die JSP weiterleiten
         List<Bild> bilder = bildBean.findAllPictures();
         request.setAttribute("bildids", bilder);
+        for (Bild b : bilder){
+            System.out.println("IDSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+            System.out.println(b.getId());
+            long id = b.getId();
+            List<Kommentar> kommentare = kommentarBean.findCommentsById(id);
+            for(Kommentar k : kommentare){
+                System.out.println(k.getText());
+            }
+            //List<Stern> sterne = sternBean.findStarsById(id);
+            /**String attribut = "kommentare" + id;
+            request.setAttribute(attribut, kommentare);**/
+        }
         
         
         request.getRequestDispatcher("/WEB-INF/uebersicht.jsp").forward(request, response);        

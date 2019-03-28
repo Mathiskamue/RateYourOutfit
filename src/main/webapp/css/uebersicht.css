@@ -123,3 +123,15 @@ span.sternebewertung > label:hover ~ input:checked ~ label {
     margin-left: 2%;
     font-size: 1.4em;
 }
+.bewerte5, .bewerte4, .bewerte3, .bewerte2, .bewerte1{
+    color:grey;
+    background-color: rgba(255, 0, 0, 0.0);
+    font-size: 100%; 
+    cursor: pointer; 
+    margin-left: 1%;
+    margin-right: 1%;
+    border:none;
+}
+.bewerte5:hover, .bewerte4:hover, .bewerte3:hover, .bewerte2:hover, .bewerte1:hover{
+    color: yellow;
+}
