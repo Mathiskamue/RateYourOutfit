@@ -59,7 +59,7 @@
                 </div>
                 <c:forEach items="${kommentare}" var="kommentar">
                 <div class="row">
-                    <div  class="col-md-12 kommentardisplay text"><b>testestest</div>
+                    <div  class="col-md-12 kommentardisplay text"><b>${kommentar.id}</div>
                 </div>
                 </c:forEach>
                

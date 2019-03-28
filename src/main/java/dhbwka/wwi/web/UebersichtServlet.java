@@ -59,8 +59,8 @@ public class UebersichtServlet extends HttpServlet {
                 System.out.println(k.getText());
             }
             //List<Stern> sterne = sternBean.findStarsById(id);
-            /**String attribut = "kommentare" + id;
-            request.setAttribute(attribut, kommentare);**/
+            //String attribut = "kommentare" + id;
+            request.setAttribute("kommentare", kommentare);
         }
         
         

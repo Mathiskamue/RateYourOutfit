@@ -37,7 +37,12 @@ public class SternBean extends EntityBean<Stern, Long> {
         em.persist(stern);
         return em.merge(stern);
         }
-    
+        
+        
+        /**SELECT t.ID, t.BESCHREIBUNG, u.TEXT, COUNT(s.STERNE), (SUM(s.STERNE)/COUNT(s.STERNE)) FROM RATEYOUROUTFIT.BILD AS t 
+        INNER JOIN RATEYOUROUTFIT.STERN AS s ON s.BILD_ID = t.ID
+        INNER JOIN RATEYOUROUTFIT.KOMMENTAR AS u ON u.BILD_ID = t.ID
+        GROUP BY t.ID, t.BESCHREIBUNG, u.TEXT;**/
     }
 
 

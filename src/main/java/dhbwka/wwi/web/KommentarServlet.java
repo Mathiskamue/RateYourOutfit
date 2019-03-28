@@ -58,9 +58,9 @@ public class KommentarServlet extends HttpServlet {
         this.kommentarBean.saveNew(comment);
         
         //Sterne speichern
-        int stern = Integer.parseInt(request.getParameter("bewertung"));
+        double stern = Double.parseDouble(request.getParameter("bewertung"));
         Stern star = new Stern();
-        star.setStern(stern);
+        star.setSterne(stern);
         System.out.println(stern);
         this.sternBean.saveNew(star);
 

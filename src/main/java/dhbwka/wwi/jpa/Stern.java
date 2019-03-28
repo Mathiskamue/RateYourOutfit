@@ -32,19 +32,19 @@ public class Stern implements Serializable {
     @TableGenerator(name = "stern_ids", initialValue = 0, allocationSize = 50)*/
     private long id = 0;
     
-    private int stern = 0;
+    private double sterne = 0;
 
-    public Stern(int bewertung, Bild bild) {
-        this.stern = bewertung;
+    public Stern(double bewertung, Bild bild) {
+        this.sterne = bewertung;
         this.bild = bild;
     }
 
-    public int getStern() {
-        return stern;
+    public double getSterne() {
+        return sterne;
     }
 
-    public void setStern(int stern) {
-        this.stern = stern;
+    public void setSterne(double sterne) {
+        this.sterne = sterne;
     }
 
     public Stern() {
