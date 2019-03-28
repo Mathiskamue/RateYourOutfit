@@ -28,12 +28,16 @@ main{
         
 }   
 
-#tab{
+.tab{
+    background-image: url("background.jpg");
     border: 4px solid darkslategrey;
     border-radius: 3px;
 }
 
-a,p,.text{
+a,.weiß{
+    color: white;
+}
+p,.text{
     color: darkslategrey;
 }
 .bu{
