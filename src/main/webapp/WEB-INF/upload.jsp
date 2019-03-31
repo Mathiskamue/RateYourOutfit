@@ -56,13 +56,13 @@
             <c:if test="${bild_form.id != 0}">
                 <div class="bildtest">
                     <br>
-                    <div>So würde dein Bild später angezeigt werden:</div>
+                    <div class="text">So würde dein Bild später angezeigt werden:</div>
                     <img src="https://localhost:8443/RateYourOutfit/app/bild?id=${bild_form.id}" class="image">
                     <br>
 
                     <textarea class="textarea" name="textarea" placeholder="Deine Beschreibung" maxlength="244" rows="3"></textarea>
                     <br>
-                    <button type="submit" name="abschicken" value="testen">Abschicken</button>  
+                    <button class ="abschickbtn" type="submit" name="abschicken" value="testen">Abschicken</button>  
                     <div>
                     </c:if>
 

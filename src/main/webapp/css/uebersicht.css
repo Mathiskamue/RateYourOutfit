@@ -1,66 +1,4 @@
-/* Sternebewertung */ 
-
- 
-
-/* body{
-    background-image: url("outfit.jpg") !important; 
-    background-repeat: no-repeat !important;
-    background-size: 100% auto !important;
-    background-attachment: fixed !important;
-    background-position: 10% 0 !important;
-    
-    
-}*/
-span#Bewertung { 
-    line-height: 45px; 
-    margin-bottom: 2%;
-} 
-
-span.sternebewertung { 
-    float: Left; 
-} 
-
-span.sternebewertung:not(:checked) > input { 
-    display: None; 
-} 
-
-span.sternebewertung:not(:checked) > label { 
-    float: Right; 
-    width: 1em; 
-    padding: 0 .1em; 
-    overflow: Hidden; 
-    white-space: Nowrap; 
-    cursor: Pointer; 
-    font-size: 200%; 
-    line-height: 1.2; 
-    color: #D0D0D0; 
-    text-shadow: 1px 1px #B0B0B0, 2px 2px #606060, .1em .1em .2em rgba(0,0,0,.5); 
-    transition: all .5s; 
-} 
-
-span.sternebewertung:not(:checked) > label:before { 
-    content: '★ '; 
-} 
-
-span.sternebewertung > input:checked ~ label { 
-    color: #FFD700; 
-    text-shadow: 1px 1px #C06000, 2px 2px #904000, .1em .1em .2em rgba(0,0,0,.5); 
-} 
-
-span.sternebewertung:not(:checked) > label:hover, 
-span.sternebewertung:not(:checked) > label:hover ~ label { 
-    color: #FFD700; 
-    text-shadow: 1px 1px #F29E02, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5); 
-} 
-
-span.sternebewertung > input:checked + label:hover, 
-span.sternebewertung > input:checked + label:hover ~ label, 
-span.sternebewertung > input:checked ~ label:hover, 
-span.sternebewertung > input:checked ~ label:hover ~ label, 
-span.sternebewertung > label:hover ~ input:checked ~ label { 
-    color: #F9B500; 
-    text-shadow: 1px 1px #F8BA01, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5); 
-} 
+/* Sternebewertung */  
 
 .images {
     width: 400px;
@@ -78,12 +16,13 @@ span.sternebewertung > label:hover ~ input:checked ~ label {
 }
 .einzeln{
     width:410px;
-    border: 3px solid whitesmoke;
+    border: 3px solid black;
     padding: 2px;
     margin-left: 20%;
     margin-right: auto;
     margin-bottom: 2%;
     margin-top: 2%;
+    background-color: rgba(256,256,256,0.9);
         
 }
 
@@ -102,26 +41,26 @@ span.sternebewertung > label:hover ~ input:checked ~ label {
 
 .sterne{
     float: right;
-    color:white;
+    color:black;
     text-align: right;
     
 }
 
 .username{
     float:left;
-    color:white;
+    color:black;
 }
 
 .kommentardisplay{
-    color:white;
+    color:BLACK;
     float:left;
     margin-left: 2%;
 }
 
 .beschreibungsdisplay{
-    color: white;
+    color: black;
     margin-left: 2%;
-    font-size: 1.4em;
+    
 }
 .bewerte5, .bewerte4, .bewerte3, .bewerte2, .bewerte1{
     color:grey;
