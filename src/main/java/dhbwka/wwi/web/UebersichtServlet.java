@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import javax.transaction.Transactional;
 import org.apache.commons.io.IOUtils;
 
 /**
@@ -43,6 +44,7 @@ public class UebersichtServlet extends HttpServlet {
     SternBean sternBean;
     
     @Override
+    @Transactional
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         
@@ -50,7 +52,7 @@ public class UebersichtServlet extends HttpServlet {
         // Anfrage an die JSP weiterleiten
         List<Bild> bilder = bildBean.findAllPictures();
         request.setAttribute("bildids", bilder);
-        for (Bild b : bilder){
+        /**for (Bild b : bilder){
             System.out.println("IDSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
             System.out.println(b.getId());
             long id = b.getId();
@@ -61,7 +63,7 @@ public class UebersichtServlet extends HttpServlet {
             //List<Stern> sterne = sternBean.findStarsById(id);
             //String attribut = "kommentare" + id;
             request.setAttribute("kommentare", kommentare);
-        }
+        }**/
         
         
         request.getRequestDispatcher("/WEB-INF/uebersicht.jsp").forward(request, response);        

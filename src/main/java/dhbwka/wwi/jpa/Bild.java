@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -77,6 +78,16 @@ public class Bild implements Serializable {
     public void setTimestamp(String timestamp){
         this.timestamp = timestamp;
     }
+
+    public List<Kommentar> getKommentar() {
+        return kommentar;
+    }
+
+    public void setKommentar(List<Kommentar> kommentar) {
+        this.kommentar = kommentar;
+    }
+    
+    
    
 
     @Override
@@ -95,6 +106,6 @@ public class Bild implements Serializable {
     List<Superlike> superLike =new ArrayList<>();
     
     @OneToMany
-    (mappedBy="bild")
+    (mappedBy="bild", fetch = FetchType.EAGER)
     List<Kommentar> kommentar =new ArrayList<>();
 }

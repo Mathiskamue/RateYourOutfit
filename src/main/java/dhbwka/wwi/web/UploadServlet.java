@@ -78,7 +78,7 @@ public class UploadServlet extends HttpServlet {
                 response.sendRedirect(WebUtils.appUrl(request, "/app/upload/"));
             }
             else{
-                BildForm form = new BildForm();
+                BildForm form = new BildForm();                
                 form.setBeschreibung(request.getParameter("beschreibung"));
                 
                 Part filepart = request.getPart("picture");
