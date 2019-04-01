@@ -29,8 +29,8 @@
                 <%--<div class="col-sm-1">
                     <p>Scorepunktzahl</p>
                 </div>--%>
-                <div class="col-sm-1">
-                    <c:out value="${session_username}"></c:out>
+                <div class="col-sm-1 useranzeige">
+                     <p>Eingeloggt: <c:out value="${session_username}"></c:out></p>
                     </div>
                 </div>
             </section>

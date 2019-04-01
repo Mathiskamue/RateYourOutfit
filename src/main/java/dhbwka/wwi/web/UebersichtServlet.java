@@ -156,7 +156,7 @@ public class UebersichtServlet extends HttpServlet {
         }
 
         //response.sendRedirect(request.getContextPath() + UploadServlet.URL);
-        response.sendRedirect(WebUtils.appUrl(request, "/app/upload/"));
+        response.sendRedirect(WebUtils.appUrl(request, "/app/uebersicht/"));
 
     }
 
