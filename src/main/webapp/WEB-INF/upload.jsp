@@ -29,11 +29,10 @@
                     </ul>
                 </div>
                 <div class="col-sm-3"></div>
-                <div class="col-sm-1">
+                <%--<div class="col-sm-1">
                     <p>Scorepunktzahl</p>
-                </div>
+                </div>--%>
                 <div class="col-sm-1">
-                    Profilname</p>
                     <p> <c:out value="${session_username}"></c:out></p>
                     </div>
                 </div>

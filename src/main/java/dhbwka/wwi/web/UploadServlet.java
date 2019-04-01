@@ -6,7 +6,9 @@
 package dhbwka.wwi.web;
 
 import dhbwka.wwi.ejb.BildBean;
+import dhbwka.wwi.ejb.UserBean;
 import dhbwka.wwi.jpa.Bild;
+import dhbwka.wwi.jpa.User;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -34,6 +36,8 @@ public class UploadServlet extends HttpServlet {
     
     @EJB
     BildBean bildBean;
+    @EJB
+    UserBean userBean;
     
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,6 +48,11 @@ public class UploadServlet extends HttpServlet {
         
 
         HttpSession session = request.getSession();
+        //Benutzerauslesen
+        User username = this.userBean.getCurrentUser();
+        String sessionuser = username.getUsername();
+        session.setAttribute("session_username", sessionuser);
+        
         BildForm form = (BildForm) session.getAttribute("bild_form");
         
         if (form == null) {

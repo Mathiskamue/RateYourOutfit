@@ -9,7 +9,10 @@
  */
 package dhbwka.wwi.web;
 
+import dhbwka.wwi.ejb.UserBean;
+import dhbwka.wwi.jpa.User;
 import java.io.IOException;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +28,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(urlPatterns = {"/index.html"})
 public class IndexServlet extends HttpServlet {
 
+    @EJB
+    UserBean userBean;
+
     /**
      * GET-Anfrage: Seite anzeigen
      *
@@ -37,8 +43,8 @@ public class IndexServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-      
-        
+        //this.service(request, response);
+        response.sendRedirect(WebUtils.appUrl(request, "/app/uebersicht/"));
 
     }
 
@@ -49,32 +55,22 @@ public class IndexServlet extends HttpServlet {
      * @throws IOException
      * @throws ServletException
      */
-    @Override
-    public void service(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
-       
-         System.out.println("Test111");
-
+    /* System.out.println("Test111");
+        
         HttpSession session = request.getSession();
-        String username = request.getParameter("j_username");
+        String username = request.getParameter();
+        
+        //User username = this.userBean.getCurrentUser();
         session.setAttribute("session_username", username);
-
+        
         System.out.println("Test222");
-        System.out.println(username);
+        System.out.println(username.getUsername());
         //session.getAttribute("");
-        String test = (String) session.getAttribute(username);
+        String test = (String) session.getAttribute(username.getUsername());
         System.out.println(test);
-        
-        
-        
-         response.sendRedirect(WebUtils.appUrl(request, "/app/uebersicht/"));
-         //request.getRequestDispatcher();
-
-        //session.removeAttribute("name");
-        // Und die Seite nochmal laden lassen // response.sendRedirect(request.getRequestURI());
-
-    }
+     */
+    //request.getRequestDispatcher();
+    //session.removeAttribute("name");
+    // Und die Seite nochmal laden lassen // response.sendRedirect(request.getRequestURI());
 }
 
-
-    
