@@ -62,21 +62,6 @@
                         <div class="col-md-1"><form method="POST"><button class="bewerte4" name="bewertung2" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></form></div>
                         <div class="col-md-1"><form method="POST"><button class="bewerte5" name="bewertung1" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></form></div>
 
-
-                        <!--<div class="col-md-12">
-                            
-                            <span class="sternebewertung"> 
-                                
-                                <input type="submit" id="stern5" name="" value="${bildid.id}"><label for="stern5" title="5_Sterne" value="${bildid.id}">5 Sterne</label> </form>
-                                <input type="submit" id="stern4" name="bewertung4" value="${bildid.id}"><label for="stern4" title="4_Sterne" value="${bildid.id}">4 Sterne</label> 
-                                <input type="submit" id="stern3" name="bewertung3" value="${bildid.id}"><label for="stern3" title="3_Sterne" value="${bildid.id}">3 Sterne</label> 
-                                <input type="submit" id="stern2" name="bewertung2" value="${bildid.id}"><label for="stern2" title="2_Sterne" value="${bildid.id}">2 Sterne</label> 
-                                <input type="submit" id="stern1" name="bewertung1" value="${bildid.id}"><label for="stern1" title="1_Stern" value="${bildid.id}">1 Stern</label>
-                               
-                            </span>
-                            
-                        </div>  -->
-
                     </div>
                     <c:forEach items="${kommentare}" var="kommentar">
                         <div class="row">

@@ -18,6 +18,8 @@
 .bildtest{
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
     width: 400px;
 }
 .image{
@@ -36,7 +38,7 @@
     float:left;
     
 }
-.anzeigebtn{
+.anzeigebtn, .abschickbtn{
    background-color: #3C3C3C;
     color: whitesmoke;
     border: 3px solid grey; 
@@ -48,4 +50,12 @@
 .textarea{
     resize: none;
     width: 100%;
+}
+.text{
+    width:100%;
+    background-color: rgba(256,256,256,0.9); 
+    font-size: 1.3em;
+}
+.abschickbtn{
+    font-size:1.5em;
 }

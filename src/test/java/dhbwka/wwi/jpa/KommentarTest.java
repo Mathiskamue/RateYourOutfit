@@ -36,23 +36,72 @@ public class KommentarTest {
     @After
     public void tearDown() {
     }
-}
 
     /**
      * Test of getText method, of class Kommentar.
      */
+    @Test
+    public void testGetText() {
+        Bild bild = null;
+        System.out.println("Dieses Outfit gefällt mir");
+        Kommentar instance = new Kommentar("Dieses Outfit gefällt mir", bild );
+        String expResult = "Dieses Outfit gefällt mir";
+        String result = instance.getText();
+        assertEquals(expResult, result);
+        
+    }
 
+    /**
+     * Test of setText method, of class Kommentar.
+     */
+    @Test
+    public void testSetText() {
+        System.out.println("Dieses Outfit gefällt mir");
+        String text = "Dieses Outfit gefällt mir";
+        Kommentar instance = new Kommentar();
+        instance.setText(text);
+       
+    }
 
+    /**
+     * Test of getId method, of class Kommentar.
+     
+    @Test
+    public void testGetId() {
+        System.out.println("getId");
+        Kommentar instance = new Kommentar();
+        Long expResult = null;
+        Long result = instance.getId();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setId method, of class Kommentar.
+    
+    @Test
+    public void testSetId() {
+        System.out.println("setId");
+        Long id = null;
+        Kommentar instance = new Kommentar();
+        instance.setId(id);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    */
     /**
      * Test of toString method, of class Kommentar.
      
     @Test
-     public void testToString() {
-    System.out.println("toString");
-    Kommentar instance = new Kommentar("text to test");
-    String expResult = "text to test";
-    String result = instance.getText();
-    assertEquals(expResult, result);
+    public void testToString() {
+        Bild bild = null;
+        System.out.println("Dieses Outfit gefällt mir");
+        Kommentar instance = new Kommentar("Dieses Outfit gefällt mir",bild);
+        String expResult = "Dieses Outfit gefällt mir";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+        
     }
-    
-}*/
+    */
+}
