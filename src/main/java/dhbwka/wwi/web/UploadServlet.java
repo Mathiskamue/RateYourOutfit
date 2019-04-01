@@ -93,7 +93,8 @@ public class UploadServlet extends HttpServlet {
                 Part filepart = request.getPart("picture");
                 InputStream inputStream = filepart.getInputStream();         
                 form.setBild(IOUtils.toByteArray(inputStream));  
-                Bild testbild = bildBean.createNewBild2(form.getBild());
+                User username = this.userBean.getCurrentUser();
+                Bild testbild = bildBean.createNewBild2(form.getBild(),username);
                 form.setId(testbild.getId());
 
                 session.setAttribute("bild_form", form);

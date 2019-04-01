@@ -35,14 +35,17 @@ public class Bild implements Serializable {
     private String beschreibung ="";
     private byte[] bild = null;
     private String timestamp;
+    private double durchschnittsbewertung;
+    private int anzahlbewertungen;
     
     public Bild(){
         
     }
     
-    public Bild(String beschreibung, byte[] bild){
+    public Bild(String beschreibung, byte[] bild,User user){
         this.beschreibung = beschreibung;
         this.bild = bild;
+        this.user = user;
         LocalDateTime zeit = LocalDateTime.now();
         DateTimeFormatter newFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"); 
 
@@ -79,6 +82,24 @@ public class Bild implements Serializable {
         this.timestamp = timestamp;
     }
 
+    public int getAnzahlbewertungen() {
+        return anzahlbewertungen;
+    }
+
+    public void setAnzahlbewertungen(int anzahlbewertungen) {
+        this.anzahlbewertungen = anzahlbewertungen;
+    }
+
+    public double getDurchschnittsbewertung() {
+        return durchschnittsbewertung;
+    }
+
+    public void setDurchschnittsbewertung(double durchschnittsbewertung) {
+        this.durchschnittsbewertung = durchschnittsbewertung;
+    }
+    
+    
+
     public List<Kommentar> getKommentar() {
         return kommentar;
     }
@@ -86,6 +107,23 @@ public class Bild implements Serializable {
     public void setKommentar(List<Kommentar> kommentar) {
         this.kommentar = kommentar;
     }
+    
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Stern> getStern() {
+        return stern;
+    }
+
+    public void setStern(List<Stern> stern) {
+        this.stern = stern;
+    }
+    
     
     
    
@@ -96,9 +134,11 @@ public class Bild implements Serializable {
     }
     
 
+    @ManyToOne
+    User user = null;
     
     @OneToMany
-    (mappedBy="bild")
+    (mappedBy="bild", fetch = FetchType.EAGER)
     List<Stern> stern =new ArrayList<>();
     
     @OneToMany
@@ -108,4 +148,6 @@ public class Bild implements Serializable {
     @OneToMany
     (mappedBy="bild", fetch = FetchType.EAGER)
     List<Kommentar> kommentar =new ArrayList<>();
+
+    
 }

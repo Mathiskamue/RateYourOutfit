@@ -22,7 +22,9 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
@@ -62,6 +64,46 @@ public class User implements Serializable {
     )
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
+
+    public List<Bild> getBilder() {
+        return bilder;
+    }
+
+    public void setBilder(List<Bild> bilder) {
+        this.bilder = bilder;
+    }
+
+    public List<Stern> getStern() {
+        return stern;
+    }
+
+    public void setStern(List<Stern> stern) {
+        this.stern = stern;
+    }
+
+    public List<Kommentar> getKommentar() {
+        return kommentar;
+    }
+
+    public void setKommentar(List<Kommentar> kommentar) {
+        this.kommentar = kommentar;
+    }
+    
+
+    
+    
+    
+    @OneToMany
+    (mappedBy="user", fetch = FetchType.EAGER)
+    List<Bild> bilder =new ArrayList<>();
+    
+    @OneToMany
+    (mappedBy="user", fetch = FetchType.EAGER)     
+    List<Stern> stern = new ArrayList<>();
+    
+    @OneToMany
+    (mappedBy="user", fetch = FetchType.EAGER)  
+    List<Kommentar> kommentar = new ArrayList<>();
 
     
 

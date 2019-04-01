@@ -42,10 +42,11 @@
 
         <div class="container anzeige">
             <c:forEach items="${bildids}" var="bildid">
-
+                <form method="POST">
+                <input type="hidden" name="csrf_token" value="${csrf_token}">
                 <div class="einzeln">
                     <div class="row uebersichtsrow">
-                        <div style="display: inline" class="col-md-6 username">Placeholder_Username</div>
+                        <div style="display: inline" class="col-md-6 username">${bildid.user.username}</div>
                         <div style="display: inline" class="col-md-6 sterne">PH_Bewertung</div>
                     </div>
                     <img src="https://localhost:8443/RateYourOutfit/app/bild?id=${bildid.id}" class="images">
@@ -54,20 +55,19 @@
                         <div class="col-md-12 beschreibungsdisplay" value="${bildid.beschreibung}">${bildid.beschreibung}</div>
 
                     </div>
-                     <form method="POST">
-                         <input type="hidden" name="csrf_token" value="${csrf_token}">
+                     
                     <div class="row">
-                        <div class="col-md-1"><button class="bewerte1" name="bewertung5" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
-                        <div class="col-md-1"><button class="bewerte2" name="bewertung4" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
-                        <div class="col-md-1"><button class="bewerte3" name="bewertung3" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
-                        <div class="col-md-1"><button class="bewerte4" name="bewertung2" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
                         <div class="col-md-1"><button class="bewerte5" name="bewertung1" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
+                        <div class="col-md-1"><button class="bewerte4" name="bewertung2" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
+                        <div class="col-md-1"><button class="bewerte3" name="bewertung3" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
+                        <div class="col-md-1"><button class="bewerte2" name="bewertung4" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
+                        <div class="col-md-1"><button class="bewerte1" name="bewertung5" type="submit" value="${bildid.id}"><i class="fas fa-star"></i></button></div>
 
                     </div>
                     
                     <c:forEach items="${bildid.kommentar}" var="kommentar">
                         <div class="row">
-                            <div  class="col-md-12 kommentardisplay text"><b>${kommentar.text}</b></div>
+                            <div  class="col-md-12 kommentardisplay text"><b>${kommentar.user.username}</b>: ${kommentar.text}</div>
                         </div>
                     </c:forEach>
                        
@@ -76,15 +76,16 @@
                     </div>
                     <div class="row">
                        
-                            <input type="hidden" name="csrf_token" value="${csrf_token}">
+                            
                             <div class="col-md-12"><button class="kommentarbtn" name="sendebtn" type="submit" value="${bildid.id}"><i class="fas fa-paper-plane text"> Absenden</i></button></div>
                         
                     </div>
-                    </form> 
+                    
                 </div>   
 
 
             </c:forEach>
+         </form> 
         </div>
     </jsp:attribute>
 </template:base>

@@ -6,6 +6,7 @@
 package dhbwka.wwi.ejb;
 
 import dhbwka.wwi.jpa.Bild;
+import dhbwka.wwi.jpa.User;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -22,13 +23,13 @@ public class BildBean {
     EntityManager em;
     
     
-    public Bild createNewBild(String beschreibung, byte[] picture){
+    /**public Bild createNewBild(String beschreibung, byte[] picture){
         Bild bild = new Bild(beschreibung, picture);
         em.persist(bild);
         return em.merge(bild);
-    }
-    public Bild createNewBild2(byte[] picture){
-        Bild bild = new Bild("", picture);
+    }**/
+    public Bild createNewBild2(byte[] picture,User user){
+        Bild bild = new Bild("", picture,user);
         em.persist(bild);
         return em.merge(bild);
     }

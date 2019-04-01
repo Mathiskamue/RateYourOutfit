@@ -71,8 +71,9 @@ public class BildTest {
     public void testGetBeschreibung() {
         String beschreibung = "Das Oberteil ist von Gucci";
         byte[] bild = null;
+        User user =null;
         System.out.println(beschreibung);
-        Bild instance = new Bild(beschreibung, bild);
+        Bild instance = new Bild(beschreibung, bild, user);
         String expResult = "Das Oberteil ist von Gucci";
         String result = instance.getBeschreibung();
         assertEquals(expResult, result);
@@ -88,7 +89,8 @@ public class BildTest {
         System.out.println("Das Oberteil ist von Gucci");
         String beschreibung = "Das Oberteil ist von Gucci";
         byte[] bild = null;
-        Bild instance = new Bild(beschreibung, bild);
+        User user = null;
+        Bild instance = new Bild(beschreibung, bild,user);
         instance.setBeschreibung(beschreibung);
         
     }
@@ -100,8 +102,9 @@ public class BildTest {
     public void testGetBild() {
         String beschreibung = "Das Oberteil ist von Gucci";
         byte[] b = null;
+        User user = null;
         System.out.println("getBild");
-        Bild instance = new Bild(beschreibung, b);
+        Bild instance = new Bild(beschreibung, b, user);
         byte[] expResult = null;
         byte[] result = instance.getBild();
         assertArrayEquals(expResult, result);
@@ -115,7 +118,8 @@ public class BildTest {
     public void testSetBild() {
         System.out.println("setBild");
         byte[] bild = null;
-        Bild instance = new Bild("Das Oberteil ist von Gucci",bild);
+        User user = null;
+        Bild instance = new Bild("Das Oberteil ist von Gucci",bild, user);
         instance.setBild(bild);
         
     }

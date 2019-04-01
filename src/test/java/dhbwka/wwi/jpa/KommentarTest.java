@@ -44,7 +44,8 @@ public class KommentarTest {
     public void testGetText() {
         Bild bild = null;
         System.out.println("Dieses Outfit gefällt mir");
-        Kommentar instance = new Kommentar("Dieses Outfit gefällt mir", bild );
+        User user = null;
+        Kommentar instance = new Kommentar("Dieses Outfit gefällt mir", bild, user );
         String expResult = "Dieses Outfit gefällt mir";
         String result = instance.getText();
         assertEquals(expResult, result);

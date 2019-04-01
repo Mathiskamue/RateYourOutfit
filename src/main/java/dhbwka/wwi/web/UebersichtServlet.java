@@ -59,6 +59,7 @@ public class UebersichtServlet extends HttpServlet {
 
         // Anfrage an die JSP weiterleiten
         List<Bild> bilder = bildBean.findAllPictures();
+        
         request.setAttribute("bildids", bilder);
         /**
          * for (Bild b : bilder){
@@ -86,34 +87,40 @@ public class UebersichtServlet extends HttpServlet {
             String kommentarfeld = request.getParameter("kommentar" + id);
             if (!(kommentarfeld.equals(""))) {
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
-                kommentarBean.createNewComment(kommentarfeld, bild);
+                User username = this.userBean.getCurrentUser();
+                kommentarBean.createNewComment(kommentarfeld, bild, username);
             }
         } else {
             if (request.getParameter("bewertung1") != null) {
                 String id = request.getParameter("bewertung1");
                 System.out.println("BildID: Stern 1: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
-                sternBean.createNewStern(1, bild);
+                User username = this.userBean.getCurrentUser();
+                sternBean.createNewStern(1, bild, username);
             } else if (request.getParameter("bewertung2") != null) {
                 String id = request.getParameter("bewertung2");
                 System.out.println("BildID: Stern 2: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
-                sternBean.createNewStern(2, bild);
+                User username = this.userBean.getCurrentUser();
+                sternBean.createNewStern(2, bild, username);
             } else if (request.getParameter("bewertung3") != null) {
                 String id = request.getParameter("bewertung3");
                 System.out.println("BildID: Stern 3: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
-                sternBean.createNewStern(3, bild);
+                User username = this.userBean.getCurrentUser();
+                sternBean.createNewStern(3, bild, username);
             } else if (request.getParameter("bewertung4") != null) {
                 String id = request.getParameter("bewertung4");
                 System.out.println("BildID: Stern 4: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
-                sternBean.createNewStern(4, bild);
+                User username = this.userBean.getCurrentUser();
+                sternBean.createNewStern(4, bild, username);
             } else if (request.getParameter("bewertung5") != null) {
                 String id = request.getParameter("bewertung5");
                 System.out.println("BildID: Stern 5: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
-                sternBean.createNewStern(5, bild);
+                User username = this.userBean.getCurrentUser();
+                sternBean.createNewStern(5, bild,username);
             }
         }
 

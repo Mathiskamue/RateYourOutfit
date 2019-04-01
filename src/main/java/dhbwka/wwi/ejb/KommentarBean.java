@@ -8,6 +8,7 @@ package dhbwka.wwi.ejb;
 import dhbwka.wwi.jpa.Kommentar;
 import dhbwka.wwi.jpa.Stern;
 import dhbwka.wwi.jpa.Bild;
+import dhbwka.wwi.jpa.User;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -28,8 +29,8 @@ public class KommentarBean extends EntityBean<Kommentar, Long> {
     public KommentarBean() {
         super(Kommentar.class);
     }
-    public Kommentar createNewComment(String comment,Bild bild){
-        Kommentar kommentar = new Kommentar(comment, bild);
+    public Kommentar createNewComment(String comment,Bild bild, User user){
+        Kommentar kommentar = new Kommentar(comment, bild, user);
         em.persist(kommentar);
         return em.merge(kommentar);
     }
