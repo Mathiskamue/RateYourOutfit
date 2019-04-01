@@ -30,31 +30,62 @@
     </jsp:attribute>
 
     <jsp:attribute name="main">
-        <div class="menuitem">
-            <a href="<c:url value="/signup/"/>">Registrieren</a>
-        </div>
+        
 
         <div class="container">
             <form action="j_security_check" method="get" class="stacked">
-              
-                    <div class="column">
+                
+                    <div class="row">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-5 kasten">
+                            <p></p>
+                            <p></p>
+                            <b class="kursiv"> RateYourOutfit </b>
+                            <p></p>
+                            <div class="row">
+                             
+                             <div class="col-sm-3 login"> 
                         <%-- Eingabefelder --%>
                         <label for="j_username">
-                            Benutzername:
-                            <span class="required">*</span>
+                        <b>Benutzername:</b>
+                        
                         </label>
-                        <input type="text" name="j_username">
-
+                             </div>
+                        <div class="col-sm-3">
+                        <input class="suche" type="text" name="j_username" placeholder="Benutzername...">
+                            </div>
+                            </div>
+                        <div class="row">
+                            
+                             <div class="col-sm-3 login"> 
                         <label for="j_password">
-                            Passwort:
-                            <span class="required">*</span>
-                        </label>
-                        <input type="password" name="j_password">
-
+                            <b>Passwort: </b>
+                        </label> 
+                             </div>
+                            <div class="col-sm-3">
+                                <input class="suche" type="password" name="j_password" placeholder="Passwort...">
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col-sm-1 login">
                         <%-- Button zum Abschicken --%>
-                        <button class="icon-login" type="submit">
+                        <button class="icon-login bu " type="submit">
                             Einloggen
-                        </button>
+                        </button> 
+                            </div>
+                            </div>
+                        <p> </p>
+                        <div class="row">
+                                <div class="col-sm-1 login">
+                        <%-- Button zum Abschicken --%>
+                        <a href="/RateYourOutfit/signup/" class="button">Registrieren</a>
+                            </div>
+                            </div>
+                        <p></p>
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
                     </div>
                 </form>
             
