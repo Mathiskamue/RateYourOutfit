@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author DEETMUMI
- 
+ */
 public class BildTest {
     
     public BildTest() {
@@ -39,7 +39,7 @@ public class BildTest {
 
     /**
      * Test of getId method, of class Bild.
-     
+    
     @Test
     public void testGetId() {
         System.out.println("getId");
@@ -63,59 +63,61 @@ public class BildTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+    */ 
     /**
      * Test of getBeschreibung method, of class Bild.
-     
+    */ 
     @Test
     public void testGetBeschreibung() {
-        System.out.println("getBeschreibung");
-        Bild instance = new Bild();
-        String expResult = "";
+        String beschreibung = "Das Oberteil ist von Gucci";
+        byte[] bild = null;
+        System.out.println(beschreibung);
+        Bild instance = new Bild(beschreibung, bild);
+        String expResult = "Das Oberteil ist von Gucci";
         String result = instance.getBeschreibung();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
      * Test of setBeschreibung method, of class Bild.
-     
+    */
     @Test
     public void testSetBeschreibung() {
-        System.out.println("setBeschreibung");
-        String beschreibung = "";
-        Bild instance = new Bild();
+        
+        System.out.println("Das Oberteil ist von Gucci");
+        String beschreibung = "Das Oberteil ist von Gucci";
+        byte[] bild = null;
+        Bild instance = new Bild(beschreibung, bild);
         instance.setBeschreibung(beschreibung);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
      * Test of getBild method, of class Bild.
-     
+    */
     @Test
     public void testGetBild() {
+        String beschreibung = "Das Oberteil ist von Gucci";
+        byte[] b = null;
         System.out.println("getBild");
-        Bild instance = new Bild();
+        Bild instance = new Bild(beschreibung, b);
         byte[] expResult = null;
         byte[] result = instance.getBild();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
      * Test of setBild method, of class Bild.
-     
+    */
     @Test
     public void testSetBild() {
         System.out.println("setBild");
         byte[] bild = null;
-        Bild instance = new Bild();
+        Bild instance = new Bild("Das Oberteil ist von Gucci",bild);
         instance.setBild(bild);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -131,7 +133,7 @@ public class BildTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+    */
     /**
      * Test of setTimestamp method, of class Bild.
     
@@ -144,7 +146,7 @@ public class BildTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+    */
     /**
      * Test of toString method, of class Bild.
     
@@ -158,5 +160,5 @@ public class BildTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-}*/
+   */ 
+}
