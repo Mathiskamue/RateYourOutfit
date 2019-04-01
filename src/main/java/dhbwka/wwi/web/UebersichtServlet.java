@@ -96,31 +96,62 @@ public class UebersichtServlet extends HttpServlet {
                 System.out.println("BildID: Stern 1: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
                 User username = this.userBean.getCurrentUser();
-                sternBean.createNewStern(1, bild, username);
+                double istnichtvorhanden = sternBean.createNewStern(1, bild,username);
+                if(istnichtvorhanden==0){
+                    bildBean.updateBewertung(bild, 1.0);
+                }
+                else{
+                    bildBean.updateBewertung2(bild,1.0, istnichtvorhanden);
+                }
             } else if (request.getParameter("bewertung2") != null) {
                 String id = request.getParameter("bewertung2");
                 System.out.println("BildID: Stern 2: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
                 User username = this.userBean.getCurrentUser();
-                sternBean.createNewStern(2, bild, username);
+                double istnichtvorhanden = sternBean.createNewStern(2, bild,username);
+                if(istnichtvorhanden==0){
+                    bildBean.updateBewertung(bild, 2.0);
+                }
+                else{
+                    bildBean.updateBewertung2(bild,2.0, istnichtvorhanden);
+                }
             } else if (request.getParameter("bewertung3") != null) {
                 String id = request.getParameter("bewertung3");
                 System.out.println("BildID: Stern 3: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
                 User username = this.userBean.getCurrentUser();
-                sternBean.createNewStern(3, bild, username);
+                double istnichtvorhanden = sternBean.createNewStern(3, bild,username);
+                if(istnichtvorhanden==0){
+                    bildBean.updateBewertung(bild, 3.0);
+                }
+                else{
+                    bildBean.updateBewertung2(bild,3.0, istnichtvorhanden);
+                }
             } else if (request.getParameter("bewertung4") != null) {
                 String id = request.getParameter("bewertung4");
                 System.out.println("BildID: Stern 4: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
                 User username = this.userBean.getCurrentUser();
-                sternBean.createNewStern(4, bild, username);
+                double istnichtvorhanden = sternBean.createNewStern(4, bild,username);
+                if(istnichtvorhanden==0){
+                    bildBean.updateBewertung(bild, 4.0);
+                }
+                else{
+                    bildBean.updateBewertung2(bild,4.0, istnichtvorhanden);
+                }
             } else if (request.getParameter("bewertung5") != null) {
                 String id = request.getParameter("bewertung5");
                 System.out.println("BildID: Stern 5: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
                 User username = this.userBean.getCurrentUser();
-                sternBean.createNewStern(5, bild,username);
+                double istnichtvorhanden = sternBean.createNewStern(5, bild,username);
+                if(istnichtvorhanden==0){
+                    bildBean.updateBewertung(bild, 5.0);
+                }
+                else{
+                    bildBean.updateBewertung2(bild,5.0, istnichtvorhanden);
+                }
+                
             }
         }
 

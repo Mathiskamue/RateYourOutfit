@@ -10,9 +10,11 @@ import dhbwka.wwi.jpa.Bild;
 import dhbwka.wwi.jpa.Kommentar;
 import dhbwka.wwi.jpa.Stern;
 import dhbwka.wwi.jpa.User;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -33,10 +35,30 @@ public class SternBean extends EntityBean<Stern, Long> {
         em.persist(stern);
         return em.merge(stern);*/
         
-        public Stern createNewStern(int bewertung,Bild bild,User user){
-            Stern stern = new Stern(bewertung,bild,user);
-            em.persist(stern);
-            return em.merge(stern);
+        public Double createNewStern(double bewertung,Bild bild,User user){
+            List<Double> sternpruef = em.createQuery("Select w.sterne FROM Stern w WHERE w.user.username = :username AND w.bild.id= :id")
+                .setParameter("username", user.getUsername())
+                .setParameter("id",bild.getId())
+                .getResultList();
+            if(!sternpruef.isEmpty()){
+                
+                System.out.println("ES Funktioniert!");
+                Query query = em.createQuery("Update Stern w SET w.sterne = :bewertung WHERE w.user.username = :username AND w.bild.id = :id");
+                query.setParameter("username", user.getUsername());
+                query.setParameter("id", bild.getId());
+                query.setParameter("bewertung", bewertung);
+                query.executeUpdate();
+                
+                return sternpruef.get(0);
+                
+            }
+            else{
+               Stern stern = new Stern(bewertung,bild,user);
+                em.persist(stern);
+                em.merge(stern);
+                return 0.0; 
+            }
+            
         }
         
         

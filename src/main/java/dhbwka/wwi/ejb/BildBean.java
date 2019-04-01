@@ -66,6 +66,28 @@ public class BildBean {
         query.setParameter("id", id);
         query.executeUpdate();
     }
+    public void updateBewertung(Bild bild, double bewertung){
+        int bewertungsanzahl = bild.getAnzahlbewertungen() + 1;
+        double anzahlbewertungen = (double) bewertungsanzahl;
+        double durchschnittsbewertung = (((bild.getDurchschnittsbewertung() * (anzahlbewertungen-1)) + bewertung)/anzahlbewertungen);
+        Query query = em.createQuery("Update Bild w SET w.anzahlbewertungen = :bewertungsanzahl, w.durchschnittsbewertung = :durchschnittsbewertung WHERE w.id = :id");
+        query.setParameter("id", bild.getId());
+        query.setParameter("bewertungsanzahl", bewertungsanzahl);
+        query.setParameter("durchschnittsbewertung", durchschnittsbewertung);
+        query.executeUpdate();
+        
+    }
+
+    public void updateBewertung2(Bild bild, double bewertung, double altezahl) {
+        int bewertungsanzahl = bild.getAnzahlbewertungen();
+        double anzahlbewertungen = (double) bewertungsanzahl;
+        double durchschnittsbewertung = (((bild.getDurchschnittsbewertung() * (anzahlbewertungen)) - altezahl + bewertung)/anzahlbewertungen);
+        Query query = em.createQuery("Update Bild w SET w.anzahlbewertungen = :bewertungsanzahl, w.durchschnittsbewertung = :durchschnittsbewertung WHERE w.id = :id");
+        query.setParameter("id", bild.getId());
+        query.setParameter("bewertungsanzahl", bewertungsanzahl);
+        query.setParameter("durchschnittsbewertung", durchschnittsbewertung);
+        query.executeUpdate();
+    }
     
     
     

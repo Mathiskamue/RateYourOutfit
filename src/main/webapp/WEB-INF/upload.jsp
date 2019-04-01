@@ -39,7 +39,7 @@
             </section>
     </jsp:attribute>
     <jsp:attribute name="main">
-        <div class="ueberschrift1">Hier kannst du dein Bild hochladen!</div>
+        <div class="ueberschrift">Hier kannst du dein Bild hochladen!</div>
         <br>
         <form method="POST" enctype="multipart/form-data">
             <%-- CSRF-Token --%>
@@ -51,11 +51,17 @@
 
 
 
-
+            <c:if test="${!empty bild_form.errors}">
+                        <div class="errors">
+                            <c:forEach items="${bild_form.errors}" var="error">
+                                <div class="error">${error}</div>
+                             </c:forEach>
+                        </div>
+            </c:if>
             <c:if test="${bild_form.id != 0}">
                 <div class="bildtest">
                     <br>
-                    <div class="text">So würde dein Bild später angezeigt werden:</div>
+                    <div class="ueberschrift2">So würde dein Bild später angezeigt werden:</div>
                     <img src="https://localhost:8443/RateYourOutfit/app/bild?id=${bild_form.id}" class="image">
                     <br>
 
@@ -65,13 +71,7 @@
                     <div>
                     </c:if>
 
-                    <c:if test="${!empty bild_form.errors}">
-                        <ul class="errors">
-                            <c:forEach items="${bild_form.errors}" var="error">
-                                <li>${error}</li>
-                                </c:forEach>
-                        </ul>
-                    </c:if>
+                    
                     </form>
 
 

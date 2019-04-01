@@ -1,0 +1,10 @@
+.fehlermeldung{
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20%;
+    height:20%;
+    color: red;
+    background-color:rgba(0,0,0,0.9);
+    text-align: center;
+}

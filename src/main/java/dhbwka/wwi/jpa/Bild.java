@@ -36,13 +36,15 @@ public class Bild implements Serializable {
     private byte[] bild = null;
     private String timestamp;
     private double durchschnittsbewertung;
-    private int anzahlbewertungen;
+    private int anzahlbewertungen = 0;
     
     public Bild(){
         
     }
     
     public Bild(String beschreibung, byte[] bild,User user){
+        this.anzahlbewertungen = 0;
+        this.durchschnittsbewertung = 0;
         this.beschreibung = beschreibung;
         this.bild = bild;
         this.user = user;
@@ -89,6 +91,10 @@ public class Bild implements Serializable {
     public void setAnzahlbewertungen(int anzahlbewertungen) {
         this.anzahlbewertungen = anzahlbewertungen;
     }
+
+    
+
+    
 
     public double getDurchschnittsbewertung() {
         return durchschnittsbewertung;

@@ -47,7 +47,7 @@
                 <div class="einzeln">
                     <div class="row uebersichtsrow">
                         <div style="display: inline" class="col-md-6 username">${bildid.user.username}</div>
-                        <div style="display: inline" class="col-md-6 sterne">PH_Bewertung</div>
+                        <div style="display: inline" class="col-md-6 sterne">${bildid.durchschnittsbewertung} <div class="star">&#9733;</div> (${bildid.anzahlbewertungen})</div>
                     </div>
                     <img src="https://localhost:8443/RateYourOutfit/app/bild?id=${bildid.id}" class="images">
                     <div class="row">
@@ -77,7 +77,7 @@
                     <div class="row">
                        
                             
-                            <div class="col-md-12"><button class="kommentarbtn" name="sendebtn" type="submit" value="${bildid.id}"><i class="fas fa-paper-plane text"> Absenden</i></button></div>
+                            <div class="col-md-12"><button class="kommentarbtn" name="sendebtn" type="submit" value="${bildid.id}"><i class="fas fa-paper-plane"> Absenden</i></button></div>
                         
                     </div>
                     

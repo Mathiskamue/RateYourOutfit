@@ -1,8 +1,8 @@
 
-.ueberschrift1{
+.ueberschrift{
     font-size: 2em;
     text-align: center;
-    color: black;
+    color: black !important;
     width: 100%;
     background-color: rgba(256,256,256,0.7); 
 }
@@ -51,11 +51,23 @@
     resize: none;
     width: 100%;
 }
-.text{
+.ueberschrift2{
     width:100%;
     background-color: rgba(256,256,256,0.9); 
     font-size: 1.3em;
+    color:black;
 }
 .abschickbtn{
     font-size:1.5em;
+}
+.error{
+    background-color: rgba(256,256,256,0.9);
+    width: 30%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    color:red;
+    font-size:1.4em;
+    font-style: italic;
 }

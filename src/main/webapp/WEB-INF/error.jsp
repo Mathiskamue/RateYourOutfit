@@ -23,12 +23,11 @@
     </jsp:attribute>
 
     <jsp:attribute name="main">
+        <div class="fehlermeldung">
         <div class="menuitem">
-          <a href="<c:url value="/logout/"/>">Nochmal versuchen</a>
+          <a href="<c:url value="/logout/"/>">Neuer Versuch</a>
         </div>
-
-
-            Das hat leider nicht geklappt. 🐻
-      
+            Benutzername bzw. Passwort ungültig!
+        </div>
     </jsp:attribute>
 </template:base>

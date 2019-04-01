@@ -16,7 +16,7 @@
 }
 .einzeln{
     width:410px;
-    border: 3px solid black;
+    border: 3px solid black !important;
     padding: 2px;
     margin-left: 20%;
     margin-right: auto;
@@ -28,9 +28,9 @@
 
 
 .kommentarbtn{
-  background-color: rgba(255, 0, 0, 0.0);; 
+  background-color: rgba(255, 0, 0, 0.0) !important; 
   border: none; 
-  color: white; 
+  color: black !important; 
   padding: 3px 20px;
   padding-left: 0;
   font-size: 100%; 
@@ -41,24 +41,24 @@
 
 .sterne{
     float: right;
-    color:black;
+    color:black !important;
     text-align: right;
     
 }
 
 .username{
     float:left;
-    color:black;
+    color:black !important;
 }
 
 .kommentardisplay{
-    color:BLACK;
+    color:black !important;
     float:left;
     margin-left: 2%;
 }
 
 .beschreibungsdisplay{
-    color: black;
+    color: black !important;
     margin-left: 2%;
     
 }
@@ -73,4 +73,9 @@
 }
 .bewerte5:hover, .bewerte4:hover, .bewerte3:hover, .bewerte2:hover, .bewerte1:hover{
     color: yellow;
+}
+.star{
+    color: orange;
+    display:inline;
+    font-size: 1.2em;
 }

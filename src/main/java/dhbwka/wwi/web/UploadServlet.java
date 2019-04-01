@@ -108,6 +108,7 @@ public class UploadServlet extends HttpServlet {
             HttpSession session = request.getSession();
             BildForm form =(BildForm) session.getAttribute("bild_form");
             form.setBeschreibung(request.getParameter("textarea"));
+            form.setErrors(null);
             form.checkValues();
                 
             if (!form.errors.isEmpty()) {
