@@ -20,12 +20,12 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <section id="navigation" class="container-fluid">
 
-             <div  id="nav-item" class="row tab">
+            <div  id="nav-item" class="row tab">
                 <div class="col-sm-6">
                     <ul class="nav nav-pills nav-justified">
                         <li> <a href="<c:url value="/app/uebersicht/"/>">Übersicht</a></li>
                         <li> <a href="<c:url value="/app/upload/"/>">Upload</a></li>
-                        <li> <a href="<c:url value="/app/comment/"/>">Overview</a></li>
+                        <li> <a href="<c:url value="/logout/"/>">Logout</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3"></div>
@@ -33,8 +33,8 @@
                     <p>Scorepunktzahl</p>
                 </div>
                 <div class="col-sm-1">
-                    <p>Profilname</p>
-                    <c:out value="${session_username}"></c:out>
+                    Profilname</p>
+                    <p> <c:out value="${session_username}"></c:out></p>
                     </div>
                 </div>
             </section>
