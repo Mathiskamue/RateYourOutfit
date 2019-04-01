@@ -36,16 +36,45 @@ public class IndexServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        String username = request.getParameter("r_username");
-        HttpSession session = request.getSession();
-        session.getAttribute("");
 
+      
+        
+
+    }
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     * @throws ServletException
+     */
+    @Override
+    public void service(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+       
+         System.out.println("Test111");
+
+        HttpSession session = request.getSession();
+        String username = request.getParameter("j_username");
         session.setAttribute("session_username", username);
 
+        System.out.println("Test222");
+        System.out.println(username);
+        //session.getAttribute("");
+        String test = (String) session.getAttribute(username);
+        System.out.println(test);
+        
+        
+        
+         response.sendRedirect(WebUtils.appUrl(request, "/app/uebersicht/"));
+         //request.getRequestDispatcher();
+
+        //session.removeAttribute("name");
         // Und die Seite nochmal laden lassen // response.sendRedirect(request.getRequestURI());
-        response.sendRedirect(WebUtils.appUrl(request, "/app/uebersicht/"));
 
     }
 }
+
 
     

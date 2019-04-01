@@ -13,16 +13,16 @@
     </jsp:attribute>
     <jsp:attribute name="head">
         <link rel="stylesheet" href="<c:url value="/css/comment.css"/>" />
-        
-        
-         <section id="navigation" class="container-fluid">
+
+
+        <section id="navigation" class="container-fluid">
 
             <div  id="nav-item" class="row tab">
                 <div class="col-sm-6">
                     <ul class="nav nav-pills nav-justified">
                         <li> <a href="<c:url value="/app/uebersicht/"/>">Übersicht</a></li>
-                         <li> <a href="<c:url value="/app/upload/"/>">Upload</a></li>
-                         <li> <a href="<c:url value="/app/comment/"/>">Overview</a></li>
+                        <li> <a href="<c:url value="/app/upload/"/>">Upload</a></li>
+                        <li> <a href="<c:url value="/logout/"/>">Logout</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3"></div>
@@ -32,9 +32,9 @@
                 <div class="col-sm-1">
                     <p>Profilname</p>
                     <c:out value="${session_username}"></c:out>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
     </jsp:attribute>
 
 

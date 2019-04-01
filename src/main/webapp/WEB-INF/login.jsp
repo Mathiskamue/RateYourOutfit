@@ -13,6 +13,13 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
+<%
+
+    session = request.getSession();
+    String username = request.getParameter("j_username");
+    session.setAttribute("session_username", username);
+%>
+
 <template:base>
     <jsp:attribute name="title">
         Login
@@ -26,29 +33,33 @@
         <div class="menuitem">
             <a href="<c:url value="/signup/"/>">Registrieren</a>
         </div>
-   
+
         <div class="container">
-            <form action="j_security_check" method="post" class="stacked">
-                <div class="column">
-                    <%-- Eingabefelder --%>
-                    <label for="j_username">
-                        Benutzername:
-                        <span class="required">*</span>
-                    </label>
-                    <input type="text" name="j_username">
+            <form action="j_security_check" method="get" class="stacked">
+              
+                    <div class="column">
+                        <%-- Eingabefelder --%>
+                        <label for="j_username">
+                            Benutzername:
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" name="j_username">
 
-                    <label for="j_password">
-                        Passwort:
-                        <span class="required">*</span>
-                    </label>
-                    <input type="password" name="j_password">
+                        <label for="j_password">
+                            Passwort:
+                            <span class="required">*</span>
+                        </label>
+                        <input type="password" name="j_password">
 
-                    <%-- Button zum Abschicken --%>
-                    <button class="icon-login" type="submit">
-                        Einloggen
-                    </button>
-                </div>
-            </form>
+                        <%-- Button zum Abschicken --%>
+                        <button class="icon-login" type="submit">
+                            Einloggen
+                        </button>
+                    </div>
+                </form>
+            
+
         </div>
+
     </jsp:attribute>
 </template:base>

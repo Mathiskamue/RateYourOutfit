@@ -73,6 +73,8 @@ public class UebersichtServlet extends HttpServlet {
         
         request.setCharacterEncoding("utf-8");
         
+        
+        
         if(request.getParameter("sendebtn")!= null){
             String id = request.getParameter("sendebtn");
             System.out.println("BildID: Kommentar: " + id );
