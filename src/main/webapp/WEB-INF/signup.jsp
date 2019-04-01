@@ -25,48 +25,72 @@
     </jsp:attribute>
 
     <jsp:attribute name="main">
-        <div class="menuitem">
-            <a href="<c:url value="/logout/"/>">Einloggen</a>
-        </div>
+        
     
         <div class="container">
             <form method="post" class="stacked">
                 <div class="column">
                     <%-- CSRF-Token --%>
                     <input type="hidden" name="csrf_token" value="${csrf_token}">
-
-                    <%-- Eingabefelder --%>
-                    <label for="signup_username">
-                        Benutzername:
-                        <span class="required">*</span>
-                    </label>
-                    <div class="side-by-side">
-                        <input type="text" name="signup_username" value="${signup_form.values["signup_username"][0]}">
+                    
+                    <div class="row">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-5 kasten">
+                            <p></p>
+                            <p></p>
+                            <b class="kursiv"> RateYourOutfit </b>
+                            <p></p>
+                            <div class="row">
+                             <div class="col-sm-4 login"> 
+                                 <%-- Eingabefelder --%>
+                                <label for="signup_username">
+                                    <b>Benutzername:</b>
+                                </label>
+                             </div>
+                                <div class="col-sm-3">
+                                    <input class="suche" type="text" name="signup_username" value="${signup_form.values["signup_username"][0]}" placeholder="Benutzername...">
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4 login"> 
+                                 <%-- Eingabefelder --%>
+                                <label for="signup_password1">
+                                      <b>Passwort: <dfn title="Das Passwort muss mindestens sechs Zeichen beinhalten!"> &#9432 </dfn> </b>
+                                </label>
+                              </div>
+                                <div class="col-sm-3">
+                                    <input class="suche" type="password" name="signup_password1" value="${signup_form.values["signup_password1"][0]}" placeholder="Passwort..." >
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                              <div class="col-sm-4 login"> 
+                                 <%-- Eingabefelder --%>
+                                <label for="signup_password2">
+                                    <b>Passwort (wdh.): <dfn title="Das Passwort muss mindestens sechs Zeichen beinhalten!"> &#9432 </dfn></b>
+                                </label>
+                              </div>
+                                <div class="col-sm-3">
+                                    <input class="suche" type="password" name="signup_password2" value="${signup_form.values["signup_password2"][0]}" placeholder="Passwort wdl...">
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1 login">
+                                    <button class="icon-pencil bu" type="submit">
+                                        Registrieren
+                                    </button>
+                                </div>
+                            </div>
+                            <p> </p>
+                            <div class="row">
+                                <div class="menuitem col-sm-5 login">
+                                    <p class="text">Zurück zum <a id="farbe" href="<c:url value="/logout/"/>">LogIn</a></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <label for="signup_password1">
-                        Passwort:
-                        <span class="required">*</span>
-                    </label>
-                    <div class="side-by-side">
-                        <input type="password" name="signup_password1" value="${signup_form.values["signup_password1"][0]}">
-                    </div>
-
-                    <label for="signup_password2">
-                        Passwort (wdh.):
-                        <span class="required">*</span>
-                    </label>
-                    <div class="side-by-side">
-                        <input type="password" name="signup_password2" value="${signup_form.values["signup_password2"][0]}">
-                    </div>
-
-                    <%-- Button zum Abschicken --%>
-                    <div class="side-by-side">
-                        <button class="icon-pencil" type="submit">
-                            Registrieren
-                        </button>
-                    </div>
-                </div>
 
                 <%-- Fehlermeldungen --%>
                 <c:if test="${!empty signup_form.errors}">

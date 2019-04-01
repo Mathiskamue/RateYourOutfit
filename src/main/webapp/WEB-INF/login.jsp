@@ -43,32 +43,29 @@
                             <p></p>
                             <b class="kursiv"> RateYourOutfit </b>
                             <p></p>
-                            <div class="row">
-                             
-                             <div class="col-sm-3 login"> 
-                        <%-- Eingabefelder --%>
-                        <label for="j_username">
-                        <b>Benutzername:</b>
-                        
-                        </label>
-                             </div>
-                        <div class="col-sm-3">
-                        <input class="suche" type="text" name="j_username" placeholder="Benutzername...">
-                            </div>
-                            </div>
                         <div class="row">
-                            
-                             <div class="col-sm-3 login"> 
-                        <label for="j_password">
-                            <b>Passwort: </b>
-                        </label> 
-                             </div>
+                            <div class="col-sm-3 login"> 
+                            <%-- Eingabefelder --%>
+                            <label for="j_username">
+                            <b>Benutzername:</b>
+                            </label>
+                            </div>
+                            <div class="col-sm-3">
+                            <input class="suche" type="text" name="j_username" placeholder="Benutzername...">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 login"> 
+                            <label for="j_password">
+                                <b>Passwort: </b>
+                            </label> 
+                            </div>
                             <div class="col-sm-3">
                                 <input class="suche" type="password" name="j_password" placeholder="Passwort...">
                             </div>
                         </div>
-                            <div class="row">
-                                <div class="col-sm-1 login">
+                        <div class="row">
+                          <div class="col-sm-1 login">
                         <%-- Button zum Abschicken --%>
                         <button class="icon-login bu " type="submit">
                             Einloggen
