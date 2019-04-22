@@ -27,22 +27,15 @@ public class SternBean extends EntityBean<Stern, Long> {
         super(Stern.class);
         }
     
-        /*    @PersistenceContext
-        EntityManager em;
-        
-        public Stern saveStern (Stern stern){
-        System.out.println(stern.getStern());
-        em.persist(stern);
-        return em.merge(stern);*/
-        
+        //Eine neue Bewertung erstellen
         public Double createNewStern(double bewertung,Bild bild,User user){
+            //Prüfen ob der User für dieses Bild bereits eine Bewertung abgegeben hat
             List<Double> sternpruef = em.createQuery("Select w.sterne FROM Stern w WHERE w.user.username = :username AND w.bild.id= :id")
                 .setParameter("username", user.getUsername())
                 .setParameter("id",bild.getId())
                 .getResultList();
-            if(!sternpruef.isEmpty()){
-                
-                System.out.println("ES Funktioniert!");
+            if(!sternpruef.isEmpty()){              
+                //Wenn dieser schon eine Bewertung abgegeben hat, wird seine erste Bewertung für dieses Bild upgedatet
                 Query query = em.createQuery("Update Stern w SET w.sterne = :bewertung WHERE w.user.username = :username AND w.bild.id = :id");
                 query.setParameter("username", user.getUsername());
                 query.setParameter("id", bild.getId());
@@ -53,19 +46,14 @@ public class SternBean extends EntityBean<Stern, Long> {
                 
             }
             else{
-               Stern stern = new Stern(bewertung,bild,user);
+                //der Benutzer hat noch keine Bewertung für das Bild abgegeben. Deshalb wird eine neue Bewertung erstellt
+                Stern stern = new Stern(bewertung,bild,user);
                 em.persist(stern);
                 em.merge(stern);
                 return 0.0; 
             }
             
         }
-        
-        
-        /**SELECT t.ID, t.BESCHREIBUNG, u.TEXT, COUNT(s.STERNE), (SUM(s.STERNE)/COUNT(s.STERNE)) FROM RATEYOUROUTFIT.BILD AS t 
-        INNER JOIN RATEYOUROUTFIT.STERN AS s ON s.BILD_ID = t.ID
-        INNER JOIN RATEYOUROUTFIT.KOMMENTAR AS u ON u.BILD_ID = t.ID
-        GROUP BY t.ID, t.BESCHREIBUNG, u.TEXT;**/
     }
 
 

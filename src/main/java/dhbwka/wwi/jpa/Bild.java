@@ -7,6 +7,8 @@ package dhbwka.wwi.jpa;
 
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -24,6 +26,8 @@ import javax.persistence.OneToMany;
  *
  * @author DEETMUMI
  */
+
+//Bild-Objekt in der Datenbank
 @Entity
 public class Bild implements Serializable {
 
@@ -31,29 +35,37 @@ public class Bild implements Serializable {
     @Id
     @GeneratedValue
     private long id = 0;
-
+    //Die Beschreibund welche der User setzen kann
     private String beschreibung ="";
+    //Das Bild in byte[] abgespeichert
     private byte[] bild = null;
-    private String timestamp;
+    //ein Timestamp, der anzeigt, wann das Bild in die Datenbank hochgeladen wurde
+    //Wird verwendet, um die neusten Bilder zuerst anzuzeigen
+    private Timestamp zeitstempel;
+    //Genaue Durchschnittsbewertung für das Bild mit allen Nachkommastellen
     private double durchschnittsbewertung;
+    //Gerundete Durchschnittsbewertung für das Bild mit 2 Nachkommastellen
+    private double bewertunggerundet;
+    //Wie viele Bewertungen bereits für das Bild abgegeben wurden
     private int anzahlbewertungen = 0;
-    
+ 
     public Bild(){
         
     }
-    
+    //Konstruktor
     public Bild(String beschreibung, byte[] bild,User user){
         this.anzahlbewertungen = 0;
         this.durchschnittsbewertung = 0;
+        this.bewertunggerundet = 0;
         this.beschreibung = beschreibung;
         this.bild = bild;
         this.user = user;
-        LocalDateTime zeit = LocalDateTime.now();
-        DateTimeFormatter newFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"); 
-
-        timestamp = zeit.format(newFormat);
+        //setzen des Zeitstempels
+        java.util.Date date= new java.util.Date(); 
+        long time = date.getTime();
+        zeitstempel = new Timestamp(time);
     }
-
+    //Getter und Setter
     public Long getId() {
         return id;
     }
@@ -77,12 +89,6 @@ public class Bild implements Serializable {
     public void setBild(byte[] bild) {
         this.bild = bild;
     }
-    public String getTimestamp(){
-        return timestamp;
-    }
-    public void setTimestamp(String timestamp){
-        this.timestamp = timestamp;
-    }
 
     public int getAnzahlbewertungen() {
         return anzahlbewertungen;
@@ -92,9 +98,14 @@ public class Bild implements Serializable {
         this.anzahlbewertungen = anzahlbewertungen;
     }
 
-    
+    public Timestamp getZeitstempel() {
+        return zeitstempel;
+    }
 
-    
+    public void setZeitstempel(Timestamp zeitstempel) {
+        this.zeitstempel = zeitstempel;
+    }
+        
 
     public double getDurchschnittsbewertung() {
         return durchschnittsbewertung;
@@ -103,6 +114,16 @@ public class Bild implements Serializable {
     public void setDurchschnittsbewertung(double durchschnittsbewertung) {
         this.durchschnittsbewertung = durchschnittsbewertung;
     }
+
+    public double getBewertunggerundet() {
+        return bewertunggerundet;
+    }
+
+    public void setBewertunggerundet(double bewertunggerundet) {
+        this.bewertunggerundet = bewertunggerundet;
+    }
+    
+    
     
     
 
@@ -139,18 +160,15 @@ public class Bild implements Serializable {
         return "dhbwka.wwi.web.Bild[ id=" + id + " ]";
     }
     
-
+    //Fremdbeziehungen
+    //Mehrere Bilder können einen User haben, aber ein Bild kann nicht mehrere User haben
     @ManyToOne
     User user = null;
-    
+    //Ein Bild kann mehrere Bewertungen haben
     @OneToMany
     (mappedBy="bild", fetch = FetchType.EAGER)
     List<Stern> stern =new ArrayList<>();
-    
-    @OneToMany
-    (mappedBy="bild")
-    List<Superlike> superLike =new ArrayList<>();
-    
+    //Ein Bild kann mehrere Kommentare haben
     @OneToMany
     (mappedBy="bild", fetch = FetchType.EAGER)
     List<Kommentar> kommentar =new ArrayList<>();

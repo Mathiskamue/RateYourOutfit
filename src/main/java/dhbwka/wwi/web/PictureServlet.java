@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathi
  */
+//Servlet zum Darstellen der einzelnen Bilder mit unique URLs
 @WebServlet(urlPatterns = "/app/bild")
 public class PictureServlet extends HttpServlet {
 

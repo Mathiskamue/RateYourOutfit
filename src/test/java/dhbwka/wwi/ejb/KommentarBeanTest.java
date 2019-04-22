@@ -127,6 +127,7 @@ public class KommentarBeanTest {
     /**
      * Test of createNewComment method, of class KommentarBean.
      */
+    /*
     @Test
     public void testCreateNewComment() throws Exception {
         System.out.println("createNewComment");
@@ -140,6 +141,7 @@ public class KommentarBeanTest {
         assertEquals(expResult, result);
         container.close();
     }
+    */
 
     /**
      * Test of findCommentsById method, of class KommentarBean.

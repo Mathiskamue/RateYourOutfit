@@ -3,7 +3,9 @@
     Created on : 12.03.2019, 10:22:14
     Author     : mathis
 --%>
-
+<%--
+    JSP zum Upload von Bildern und Beschreibung
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/" prefix="template"%>
@@ -44,6 +46,7 @@
         <form method="POST" enctype="multipart/form-data">
             <%-- CSRF-Token --%>
             <input type="hidden" name="csrf_token" value="${csrf_token}">
+           <%--Bild hochladen durch input Feld--%>
             <div class="hochladen">
                 <input type="file" name="picture" class="upload" />
                 <div class="hochladbtn"><button class="anzeigebtn" type="submit" name="hochladen" value="hochladen">Bild anzeigen</button></div> 
@@ -58,21 +61,24 @@
                              </c:forEach>
                         </div>
             </c:if>
+            <%--Nur wenn ein Bild schon in der Bildform mit einer ID hinterlegt wurde, wird dieser Teil angezeigt--%>
             <c:if test="${bild_form.id != 0}">
                 <div class="bildtest">
                     <br>
+                    <%--Bildvorschau--%>
                     <div class="ueberschrift2">So würde dein Bild später angezeigt werden:</div>
                     <img src="https://localhost:8443/RateYourOutfit/app/bild?id=${bild_form.id}" class="image">
                     <br>
-
+                    <%--Beschreibung für das Bild setzen--%>
                     <textarea class="textarea" name="textarea" placeholder="Deine Beschreibung" maxlength="244" rows="3"></textarea>
                     <br>
                     <button class ="abschickbtn" type="submit" name="abschicken" value="testen">Abschicken</button>  
                     <div>
-                    </c:if>
+            </c:if>
+                        
 
                     
-                    </form>
+        </form>
 
 
 

@@ -1,4 +1,4 @@
-
+/*Css für Upload-Servlet*/
 .ueberschrift{
     font-size: 2em;
     text-align: center;
@@ -25,6 +25,7 @@
 .image{
     width: 400px;
     height: 400px;
+    background-color: rgba(256,256,256,0.7);
 }
 .beschreibung{
     margin-left: auto;

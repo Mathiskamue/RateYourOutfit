@@ -29,12 +29,13 @@ public class KommentarBean extends EntityBean<Kommentar, Long> {
     public KommentarBean() {
         super(Kommentar.class);
     }
+    //einen neuen Kommentar erstellen
     public Kommentar createNewComment(String comment,Bild bild, User user){
         Kommentar kommentar = new Kommentar(comment, bild, user);
         em.persist(kommentar);
         return em.merge(kommentar);
     }
-
+    //Kommentare eines Bildes mithilfe der BildID finden
     public List<Kommentar> findCommentsById(long id) {
         return em.createQuery("Select w From Kommentar w WHERE w.bild.id = :id")
                 .setParameter("id", id)

@@ -42,6 +42,7 @@ public class KommentarServletTest {
     /**
      * Test of doGet method, of class KommentarServlet.
      */
+    /*
     @Test
     public void testDoGet() throws Exception {
         System.out.println("doGet");
@@ -52,10 +53,12 @@ public class KommentarServletTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    */
 
     /**
      * Test of doPost method, of class KommentarServlet.
      */
+    /*
     @Test
     public void testDoPost() throws Exception {
         System.out.println("doPost");
@@ -66,5 +69,6 @@ public class KommentarServletTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+*/
     
 }

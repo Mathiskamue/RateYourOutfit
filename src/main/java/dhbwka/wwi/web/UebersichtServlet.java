@@ -30,6 +30,7 @@ import org.apache.commons.io.IOUtils;
  *
  * @author mathi
  */
+//Servlet für die Übersicht über alle Bilder und das Bewerten und Kommentieren
 @WebServlet(urlPatterns = "/app/uebersicht/")
 public class UebersichtServlet extends HttpServlet {
 
@@ -57,21 +58,11 @@ public class UebersichtServlet extends HttpServlet {
         String sessionuser = username.getUsername();
         session.setAttribute("session_username", sessionuser);
 
-        // Anfrage an die JSP weiterleiten
+        //Alle Bildobjekte aus der Datenbank heraussuchen
         List<Bild> bilder = bildBean.findAllPictures();
         
         request.setAttribute("bildids", bilder);
-        /**
-         * for (Bild b : bilder){
-         * System.out.println("IDSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-         * System.out.println(b.getId()); long id = b.getId(); List<Kommentar>
-         * kommentare = kommentarBean.findCommentsById(id); for(Kommentar k :
-         * kommentare){ System.out.println(k.getText()); } //List<Stern> sterne
-         * = sternBean.findStarsById(id); //String attribut = "kommentare" + id;
-         * request.setAttribute("kommentare", kommentare);
-        }*
-         */
-
+        //Anfrage mit Bildobjekten an die JSP weiterleiten
         request.getRequestDispatcher("/WEB-INF/uebersicht.jsp").forward(request, response);
     }
 
@@ -80,10 +71,12 @@ public class UebersichtServlet extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("utf-8");
-
+        //Überprüfen, welcher Button betätigt wurde
         if (request.getParameter("sendebtn") != null) {
+            //Wenn der Sende-Button betätigt wurde, soll ein Kommentar abgeschickt werden
+            //Überprüfen, ob in dem Kommentarfeld etwas drinsteht, wenn ja wird das Vorhandene in der
+            //Datenbank abgespeichert und abgeschickt
             String id = request.getParameter("sendebtn");
-            System.out.println("BildID: Kommentar: " + id);
             String kommentarfeld = request.getParameter("kommentar" + id);
             if (!(kommentarfeld.equals(""))) {
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
@@ -91,9 +84,10 @@ public class UebersichtServlet extends HttpServlet {
                 kommentarBean.createNewComment(kommentarfeld, bild, username);
             }
         } else {
+            //Ansonsten kann nur ein Bild bewertet werden
+            //Deshalb muss überprüft werden, welches Bild mit welcher Bewertung gedrückt wurde.
             if (request.getParameter("bewertung1") != null) {
                 String id = request.getParameter("bewertung1");
-                System.out.println("BildID: Stern 1: " + id);
                 Bild bild = bildBean.findBildById(Long.parseLong(id));
                 User username = this.userBean.getCurrentUser();
                 double istnichtvorhanden = sternBean.createNewStern(1, bild,username);

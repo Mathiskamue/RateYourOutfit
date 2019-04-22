@@ -12,6 +12,8 @@ import java.util.List;
  *
  * @author mathi
  */
+//Form-Attribut zur zwischenspeicherung für das Bild-Objekt
+//Außerdem mit Error-Liste
 public class BildForm {
     public List<String> errors = new ArrayList<>();
     
@@ -50,9 +52,6 @@ public class BildForm {
     
     public void checkValues() {
         this.errors = new ArrayList<>();
-        if (bild == null) {
-            this.errors.add("Lade erst ein Bild hoch.");
-        }
         if (beschreibung == null || beschreibung.equals("")) {
             beschreibung = "";
             this.errors.add("Gib erst eine Beschreibung ein!");

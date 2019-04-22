@@ -5,7 +5,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
-
+<%--
+JSP zur Darstellung aller hochgeladenen Bilder der einzelnen User
+--%>    
 <template:base>
     <jsp:attribute name="title">
         Login
@@ -39,7 +41,7 @@
 
 
     <jsp:attribute name="main">
-
+        <%--Hier werden alle Bilder aus der Datenbank vom Servlet übergeben und eingefügt--%>
         <div class="container anzeige">
             <c:forEach items="${bildids}" var="bildid">
                 <form method="POST">
@@ -47,7 +49,7 @@
                 <div class="einzeln">
                     <div class="row uebersichtsrow">
                         <div style="display: inline" class="col-md-6 username">${bildid.user.username}</div>
-                        <div style="display: inline" class="col-md-6 sterne">${bildid.durchschnittsbewertung} <div class="star">&#9733;</div> (${bildid.anzahlbewertungen})</div>
+                        <div style="display: inline" class="col-md-6 sterne">${bildid.bewertunggerundet} <div class="star">&#9733;</div> (${bildid.anzahlbewertungen})</div>
                     </div>
                     <img src="https://localhost:8443/RateYourOutfit/app/bild?id=${bildid.id}" class="images">
                     <div class="row">
