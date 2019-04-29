@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  * @author DEETMUMI
  */
 public class UserTest {
-    
+   
     public UserTest() {
     }
     
@@ -91,17 +91,16 @@ public class UserTest {
 
     /**
      * Test of checkPassword method, of class User.
-     
+     */
     @Test
     public void testCheckPassword() {
         System.out.println("checkPassword");
-        String password = "";
-        User instance = new User();
+        String password = "Test1234";
+        User instance = new User("instance","123456");
         boolean expResult = false;
         boolean result = instance.checkPassword(password);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**

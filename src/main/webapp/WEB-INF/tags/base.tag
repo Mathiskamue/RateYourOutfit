@@ -35,8 +35,7 @@
         </header>
         <!-- Hauptinhalt der Seite -->
         <main>  
-            
-            
+           
             <jsp:invoke fragment="main"/>
             
         </main>

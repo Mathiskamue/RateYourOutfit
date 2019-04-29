@@ -66,12 +66,12 @@ public class KommentarTest {
         expResult.add(comment2);
         expResult.add(comment3);
         List<Kommentar> result = bild.getKommentar();
-        for(int i =0; i < result.size();i++){
+        for (Kommentar result1 : result) {
             result.contains(comment1);
             result.contains(comment2);
             result.contains(comment3);
         }
-        System.out.println(result);
+        
     }
     /**
      * Test of getText method, of class Kommentar.
