@@ -75,20 +75,7 @@ public class UserTest {
         
     }
 
-    /**
-     * Test of getPassword method, of class User.
-     
-    @Test
-    public void testGetPassword() {
-        System.out.println("getPassword");
-        User instance = new User("username","passwort");
-        User.Password expResult = null ;
-        User.Password result = instance.getPassword();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+    
     /**
      * Test of checkPassword method, of class User.
      */
@@ -103,44 +90,5 @@ public class UserTest {
         
     }
 
-    /**
-     * Test of getGroups method, of class User.
-     
-    @Test
-    public void testGetGroups() {
-        System.out.println("getGroups");
-        User instance = new User();
-        List<String> expResult = null;
-        List<String> result = instance.getGroups();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of addToGroup method, of class User.
-     
-    @Test
-    public void testAddToGroup() {
-        System.out.println("addToGroup");
-        String groupname = "";
-        User instance = new User();
-        instance.addToGroup(groupname);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of removeFromGroup method, of class User.
-     
-    @Test
-    public void testRemoveFromGroup() {
-        System.out.println("removeFromGroup");
-        String groupname = "";
-        User instance = new User();
-        instance.removeFromGroup(groupname);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    */
+    
 }

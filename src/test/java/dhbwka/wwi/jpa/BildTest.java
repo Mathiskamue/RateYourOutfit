@@ -39,31 +39,7 @@ public class BildTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getId method, of class Bild.
     
-    @Test
-    public void testGetId() {
-        System.out.println("getId");
-        Bild instance = new Bild();
-        Long expResult = null;
-        Long result = instance.getId();
-        assertEquals(expResult, result);
-        
-    }
-*/ 
-    /**
-     * Test of setId method, of class Bild.
-     
-    @Test
-    public void testSetId() {
-        System.out.println("setId");
-        Long id = null;
-        Bild instance = new Bild();
-        instance.setId(id);
-        
-    }
-    */ 
     /**
      * Test of getBeschreibung method, of class Bild.
     */ 
@@ -93,71 +69,4 @@ public class BildTest {
         
     }
 
-    /**
-     * Test of getBild method, of class Bild.
-    
-    @Test
-    public void testGetBild() {
-        byte[] b = null;
-        System.out.println("getBild");
-        Bild instance = new Bild(beschreibung, b, user);
-        byte[] expResult = null;
-        byte[] result = instance.getBild();
-        assertArrayEquals(expResult, result);
-        
-    }
-*/
-    /**
-     * Test of setBild method, of class Bild.
-    
-    @Test
-    public void testSetBild() {
-        System.out.println("setBild");
-        byte[] bild = null;
-        User user = null;
-        Bild instance = new Bild("Das Oberteil ist von Gucci",bild, user);
-        instance.setBild(bild);
-        
-    }
-*/
-    /**
-     * Test of getTimestamp method, of class Bild.
-   
-    @Test
-    public void testGetTimestamp() {
-        System.out.println("getTimestamp");
-        Bild instance = new Bild();
-        String expResult = "";
-        String result = instance.getTimestamp();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-     */
-    /**
-     * Test of setTimestamp method, of class Bild.
-    
-    @Test
-    public void testSetTimestamp() {
-        System.out.println("setTimestamp");
-        String timestamp = "";
-        Bild instance = new Bild();
-        instance.setTimestamp(timestamp);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    */
-    /**
-     * Test of toString method, of class Bild.
-    
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Bild instance = new Bild();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        
-    }
-   */ 
 }
